@@ -61,6 +61,26 @@ python src/avionics_anomaly.py
 ```
 *Output: Detection of malicious 'Gear Down' injections during high-speed cruise.*
 
+## 🐳 Run with Docker
+
+You can run the entire simulation in a container without installing Python locally.
+
+### Option A: Docker Compose (Recommended)
+This method allows generated charts (PNGs) to be saved to your local folder.
+
+```bash
+docker compose up
+```
+
+### Option B: Standard Docker
+```bash
+# 1. Build the image
+docker build -t ita-project-we-can-fly .
+
+# 2. Run the simulations
+docker run ita-project-we-can-fly
+```
+
 ---
 
 ## 📊 Technologies Used
