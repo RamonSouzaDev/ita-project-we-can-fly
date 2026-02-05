@@ -15,11 +15,12 @@ This project is aligned with the **DECEA (Departamento de Controle do Espaço A�
 This project explores the intersection of **Aeronautic Cybersecurity** and **Artificial Intelligence**, demonstrating how Machine Learning can defend modern avionics against sophisticated cyber threats.
 
 Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧🇷
+**CREA-SP Registered Software Engineer:** 5071785098
 
 > **CREA-SP Registered Project** 🛡️
 > **ART:** LC39711825-2620260207668
 > **Status:** REGISTERED & ACTIVE ✅
-
+> **Compliance:** DECEA 2030 ADS-B Mandate Readiness
 
 ---
 
