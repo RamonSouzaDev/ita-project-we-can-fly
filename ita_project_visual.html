@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITA Project: We Can Fly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyber: #00f3ff;
+            --neon-aero: #bc13fe;
+            --neon-brazil: #00ff88;
+            --dark-bg: #050505;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--dark-bg);
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Moving Stars to simulate speed */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0));
+            background-size: 200px 200px;
+            animation: flyThrough 10s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes flyThrough {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(100%);
+            }
+        }
+
+        /* UI Elements Wrapper for Final Fade Out */
+        .ui-wrapper {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* FADE OUT EVERYTHING at 6s */
+            animation: uiFadeOut 1s ease-in-out forwards 6s;
+        }
+
+        @keyframes uiFadeOut {
+            to {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 0.5s;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            background: linear-gradient(to right, #fff, #999);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: var(--neon-cyber);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            text-shadow: 0 0 15px var(--neon-cyber);
+        }
+
+        .cards-container {
+            display: flex;
+            gap: 50px;
+            perspective: 1200px;
+        }
+
+        .card {
+            width: 320px;
+            height: 480px;
+            background: rgba(20, 20, 20, 0.7);
+            border-radius: 24px;
+            padding: 40px 25px;
+            position: relative;
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            opacity: 0;
+            transform: translateY(100px) scale(0.8) rotateX(20deg);
+        }
+
+        /* Entrance Animations */
+        .card:nth-child(1) {
+            border-color: rgba(0, 243, 255, 0.5);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+            animation: takeOff 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.5s,
+                flyHover 6s ease-in-out infinite 1.7s;
+        }
+
+        .card:nth-child(2) {
+            border-color: rgba(0, 255, 136, 0.5);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+            animation: takeOff 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 1.5s,
+                flyHover 6s ease-in-out infinite 2.7s;
+        }
+
+        .card:nth-child(3) {
+            border-color: rgba(188, 19, 254, 0.5);
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.2);
+            animation: takeOff 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 2.5s,
+                flyHover 6s ease-in-out infinite 3.7s;
+        }
+
+        @keyframes takeOff {
+            0% {
+                opacity: 0;
+                transform: translateY(400px) scale(0.5) rotateX(40deg);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateY(-50px) scale(1.05) rotateX(0deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
+            }
+        }
+
+        @keyframes flyHover {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(2deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 20px;
+            background: inherit;
+            filter: blur(20px);
+            z-index: -1;
+            opacity: 0;
+            animation: engineGlow 3s infinite 2s;
+        }
+
+        .card.cyber::after {
+            background: var(--neon-cyber);
+            box-shadow: 0 0 60px 20px var(--neon-cyber);
+        }
+
+        .card.ita::after {
+            background: var(--neon-brazil);
+            box-shadow: 0 0 60px 20px var(--neon-brazil);
+        }
+
+        .card.ai::after {
+            background: var(--neon-aero);
+            box-shadow: 0 0 60px 20px var(--neon-aero);
+        }
+
+        @keyframes engineGlow {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: translateX(-50%) scaleX(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: translateX(-50%) scaleX(1.2);
+            }
+        }
+
+        .image-box {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+
+        .icon {
+            font-size: 3.5rem;
+        }
+
+        .creator-badge {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            font-weight: bold;
+            border: 1px solid transparent;
+        }
+
+        .card.cyber .creator-badge {
+            color: var(--neon-cyber);
+            border-color: var(--neon-cyber);
+            box-shadow: 0 0 10px var(--neon-cyber);
+        }
+
+        .card.ita .creator-badge {
+            color: var(--neon-brazil);
+            border-color: var(--neon-brazil);
+            box-shadow: 0 0 10px var(--neon-brazil);
+        }
+
+        .card.ai .creator-badge {
+            color: var(--neon-aero);
+            border-color: var(--neon-aero);
+            box-shadow: 0 0 10px var(--neon-aero);
+        }
+
+        h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .footer-credit {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.9rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeIn 2s ease-out forwards 4s;
+            opacity: 0;
+        }
+
+        /* 
+           FINAL FINALE LOGO (The Big Reveal)
+           Starts appearing at 6s, when UI fades out.
+        */
+        .final-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            width: 400px;
+            height: 400px;
+            opacity: 0;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: finalLogoEntrance 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 6s;
+        }
+
+        .final-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 50px rgba(0, 255, 136, 0.6));
+        }
+
+        .final-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards 7.5s;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes finalLogoEntrance {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.2);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+
+            /* Overshoot */
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="stars"></div>
+
+        <!-- Wrapper helps us fade out everything together -->
+        <div class="ui-wrapper">
+            <header>
+                <h1>ITA Project</h1>
+                <h2>We Can Fly: Securing the Skies</h2>
+            </header>
+
+            <div class="cards-container">
+                <!-- CYBERSECURITY CARD -->
+                <div class="card cyber">
+                    <div class="image-box">
+                        <span class="icon">🛡️</span>
+                    </div>
+                    <div class="creator-badge">Protection</div>
+                    <h3>Cyber Defense</h3>
+                    <p>Detecting <strong>ADS-B Spoofing</strong> & "Ghost Aircraft" signals in real-time.</p>
+                </div>
+
+                <!-- ITA CARD -->
+                <div class="card ita">
+                    <div class="image-box">
+                        <img src="./ITA_logo.png" alt="ITA Logo" class="logo-img"
+                            onerror="this.parentElement.innerHTML='<span class=\'icon\'>🦅</span>'">
+                    </div>
+                    <div class="creator-badge">Inspiration</div>
+                    <h3>Aeronautics</h3>
+                    <p>Inspired by <strong>ITA Excellence</strong> & Brazilian Aerospace Innovation.</p>
+                </div>
+
+                <!-- AI CARD -->
+                <div class="card ai">
+                    <div class="image-box">
+                        <span class="icon">🤖</span>
+                    </div>
+                    <div class="creator-badge">Intelligence</div>
+                    <h3>AI Powered</h3>
+                    <p>Using <strong>Isolation Forests</strong> & SVMs to identify avionics anomalies.</p>
+                </div>
+            </div>
+
+            <div class="footer-credit">Developed by Ramon Mendes</div>
+        </div>
+
+        <!-- THE GRAND FINALE LOGO -->
+        <div class="final-logo">
+            <img src="./ITA_logo.png" alt="ITA Final Logo">
+            <div class="final-title">We Can Fly</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
