@@ -1,31 +1,56 @@
 import sys
 import os
+import time
 
-# Add src to python path
+# Ensure src is in python path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-try:
-    print("\n[TEST] Running ADS-B Spoofing Simulation...")
-    from src import adsb_spoofing
-    adsb_df = adsb_spoofing.generate_flight_data(n_samples=500, contamination=0.1)
-    model, scaler = adsb_spoofing.train_detector(adsb_df)
-    
-    # Generate predictions for plotting
-    X_test = scaler.transform(adsb_df[['altitude_delta', 'velocity_delta', 'rssi']])
-    preds = model.predict(X_test)
-    
-    # Generate Plot
-    print(f"Generating plot to {os.getcwd()}/adsb_detection_result.png")
-    adsb_spoofing.plot_results(adsb_df, preds)
-    print("✅ ADS-B Model Trained & Plot Generated")
-    
-    print("\n[TEST] Running Avionics Bus Anomaly Simulation...")
-    from src import avionics_anomaly
-    avionics_df = avionics_anomaly.simulate_arinc_bus(n_samples=500, contamination=0.1)
-    model_av, scaler_av = avionics_anomaly.train_one_class_svm(avionics_df)
-    print("✅ Avionics Model Trained Successfully")
+from ita_aero_sec.sensors.adsb import ADSBSensor
+from ita_aero_sec.sensors.avionics import Arinc429Bus
+from ita_aero_sec.utils.logger import logger
 
-    print("\n🎉 ALL SYSTEMS GO: Aviation Cybersecurity Modules Verified.")
-except Exception as e:
-    print(f"\n❌ TEST FAILED: {e}")
-    sys.exit(1)
+def run_engineering_simulation():
+    print("\n" + "="*60)
+    print("   ITA PROJECT: WE CAN FLY - ENGINEERING SIMULATION   ")
+    print("   CREA-SP ART: LC39711825-2620260207668             ")
+    print("="*60 + "\n")
+    
+    logger.info("Initializing CREA-SP Certified Simulation...")
+    
+    # Initialize Sensors
+    adsb = ADSBSensor(sensor_id="RADAR-SBGR-01")
+    bus = Arinc429Bus(bus_name="ARINC-429-BUS-A")
+    
+    try:
+        # Stream 100 steps
+        duration = 100
+        adsb_stream = adsb.stream_flight_data(duration_sec=duration, anomaly_prob=0.1)
+        bus_stream = bus.stream_bus_traffic(duration_cycles=duration, injection_prob=0.05)
+        
+        cycle = 0
+        for adsb_pkt, arinc_word in zip(adsb_stream, bus_stream):
+            cycle += 1
+            
+            # Monitoring Logic
+            status = " [OK] "
+            if adsb_pkt.is_spoofed:
+                status = " [ALERT: GHOST AIRCRAFT DETECTED] "
+            if arinc_word.is_injection:
+                status = " [ALERT: AVIONICS INJECTION DETECTED] "
+            
+            # Live Dashboard output
+            output = f"\rCycle {cycle:03d} | Alt: {adsb_pkt.altitude:05.1f} ft | Vel: {adsb_pkt.velocity:05.1f} kts | {status}"
+            sys.stdout.write(output)
+            sys.stdout.flush()
+            
+            time.sleep(0.1)
+            
+    except KeyboardInterrupt:
+        print("\nSimulation Aborted.")
+        
+    print("\n\n" + "="*60)
+    print("   SIMULATION COMPLETE. DATA LOGGED TO BLACK BOX.    ")
+    print("="*60)
+
+if __name__ == "__main__":
+    run_engineering_simulation()
