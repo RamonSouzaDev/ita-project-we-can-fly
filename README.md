@@ -32,6 +32,9 @@ Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧
 **Ramon de Souza Mendes** holds a robust portfolio of qualifications underpinning this engineering project:
 
 ### 📄 Post-Graduation
+*   **Machine Learning Engineering** (Ongoing 2026)
+    *   *Superintensive Program*
+    *   Start: Feb/2026 | Focus: Advanced ML Algorithms & AI Systems Engineering.
 *   **MBA in Strategic IT Management** (Ongoing 2025)
     *   *Universidade Pitágoras Unopar Anhanguera*
     *   Focus: IT Governance, Cloud Infrastructure, Strategic Information Management.
