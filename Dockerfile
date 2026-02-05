@@ -18,5 +18,5 @@ COPY run_aero_tests.py .
 RUN useradd -m appuser && chown -R appuser /app
 USER appuser
 
-# Default command: Run the simulation tests
-CMD ["python", "run_aero_tests.py"]
+# Default command: Run the Engineering Simulation (CREA-SP)
+CMD ["python", "-m", "src.main_simulation"]

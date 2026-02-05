@@ -4,4 +4,4 @@ services:
     container_name: ita_project_we_can_fly
     volumes:
       - .:/app # Mount current dir to save charts/logs back to host
-    command: python run_aero_tests.py
+    command: python -m src.main_simulation
