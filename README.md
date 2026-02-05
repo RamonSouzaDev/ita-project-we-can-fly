@@ -20,7 +20,10 @@ Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧
 ### 🗳️ Professional Leadership
 *   **Sindpd Presidency Candidate (Software Category):** Official communication sent to the *Sindicato dos Trabalhadores em Processamento de Dados (Sindpd)* regarding presidency candidacy to represent the Software Engineering category.
 *   **CREA-SP Engineering Authority:** Fully registered and compliant, advocating for the formal recognition and regulation of Software Engineering in Brazil.
-*   **Força Aérea Brasileira (FAB) Manifesto:** Formal manifesto submitted to the Brazilian Air Force (FAB), presenting this project as a strategic defense asset for national airspace security.
+*   **Força Aérea Brasileira (FAB) Manifesto:** Formal suggestion submitted via *Fala.BR* platform to the **Comando da Aeronáutica (COMAER)**.
+    *   **Protocol:** 60141.000257/2026-26
+    *   **Objective:** Proposal of AI & Cybersecurity strategic project for Aerospace Defense.
+    *   **Status:** Registered (Deadline: 05/03/2026).
 
 ---
 
