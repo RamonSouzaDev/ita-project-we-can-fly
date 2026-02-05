@@ -52,6 +52,11 @@ Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧
     *   *Universidade Paulista (UNIP)*
     *   Core Competencies: Cryptography, Penetration Testing (9.5), Network Security (8.5), Computer Forensics, Risk Management.
 
+### 🧩 Foundation Technical Training
+*   **Logic of Programming** (2017)
+    *   *SENAI (Serviço Nacional de Aprendizagem Industrial)*
+    *   Foundation of Algorithmic Thinking and Structured Programming.
+
 ---
 
 > **CREA-SP Registered Project** 🛡️
