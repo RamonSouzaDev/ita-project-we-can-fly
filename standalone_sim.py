@@ -61,11 +61,14 @@ def main():
     
     try:
         iterator = zip(
-            adsb.stream_flight_data(100), 
-            bus.stream_bus_traffic(100)
+            adsb.stream_flight_data(1000000), # Extended run for demo
+            bus.stream_bus_traffic(1000000)
         )
         
         cycle = 0
+        print("  STREAMING TELEMETRY (DECEA 2030 MODE)... CAUTION: LIVE DATA")
+        print("-" * 65)
+        
         for data_adsb, data_bus in iterator:
             cycle += 1
             status = "[OK]"
@@ -74,9 +77,10 @@ def main():
             if data_bus['is_injection']: 
                 status = "[ALERT: AVIONICS ATTACK]"
                 
-            out = f"Cycle {cycle:03d} | Alt: {data_adsb['alt']:05.0f} | Vel: {data_adsb['vel']:03.0f} | {status}"
+            out = f"Cycle {cycle:05d} | Alt: {data_adsb['alt']:05.0f} | Vel: {data_adsb['vel']:03.0f} | {status}"
             print(out)
-            time.sleep(0.1)
+            sys.stdout.flush() # Ensure Docker logs see it immediately
+            time.sleep(0.5) # Slower for better visual demo
             
     except KeyboardInterrupt:
         print("\nStopped.")

@@ -17,6 +17,28 @@ This project explores the intersection of **Aeronautic Cybersecurity** and **Art
 Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧🇷
 **CREA-SP Registered Software Engineer:** 5071785098
 
+---
+
+## 🎓 Academic Credentials & Specializations
+
+**Ramon de Souza Mendes** holds a robust portfolio of qualifications underpinning this engineering project:
+
+### 📄 Post-Graduation
+*   **MBA in Strategic IT Management** (Ongoing 2025)
+    *   *Universidade Pitágoras Unopar Anhanguera*
+    *   Focus: IT Governance, Cloud Infrastructure, Strategic Information Management.
+*   **Specialization in Software Architecture** (2024)
+    *   *Universidade Pitágoras Unopar Anhanguera*
+    *   Key Skills: Cloud Architecture, DevOps Culture, API/Web Services, Data Warehouse Modeling.
+    *   *Grade Excellence:* 10.0 in Cloud Infra, Mobile Apps, Software Architecture.
+
+### 🛡️ Undergraduate Degree
+*   **Technology in Information Security** (2021-2024)
+    *   *Universidade Paulista (UNIP)*
+    *   Core Competencies: Cryptography, Penetration Testing (9.5), Network Security (8.5), Computer Forensics, Risk Management.
+
+---
+
 > **CREA-SP Registered Project** 🛡️
 > **ART:** LC39711825-2620260207668
 > **Status:** REGISTERED & ACTIVE ✅

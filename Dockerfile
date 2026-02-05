@@ -12,11 +12,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy source code
 COPY src/ ./src/
-COPY run_aero_tests.py .
-
-# Create a non-root user for security
-RUN useradd -m appuser && chown -R appuser /app
-USER appuser
-
-# Default command: Run the Engineering Simulation (CREA-SP)
-CMD ["python", "-m", "src.main_simulation"]
+# Default command: Run the Engineering Simulation (Standalone)
+COPY standalone_sim.py .
+CMD ["python", "standalone_sim.py"]
