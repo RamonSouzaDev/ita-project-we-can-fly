@@ -38,9 +38,10 @@ Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧
 *   **Machine Learning Engineering** (Ongoing 2026)
     *   *Superintensive Program*
     *   Start: Feb/2026 | Focus: Advanced ML Algorithms & AI Systems Engineering.
-*   **MBA in Strategic IT Management** (Ongoing 2025)
+*   **MBA in Strategic IT Management** (2025)
     *   *Universidade Pitágoras Unopar Anhanguera*
     *   Focus: IT Governance, Cloud Infrastructure, Strategic Information Management.
+    *   *Grade Excellence:* 9.0+ average in Strategic Management & Cloud Architectures.
 *   **Specialization in Software Architecture** (2024)
     *   *Universidade Pitágoras Unopar Anhanguera*
     *   Key Skills: Cloud Architecture, DevOps Culture, API/Web Services, Data Warehouse Modeling.
