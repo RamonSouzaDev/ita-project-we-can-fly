@@ -123,11 +123,24 @@ python src/avionics_anomaly.py
 
 You can run the entire simulation in a container without installing Python locally.
 
-### Option A: Docker Compose (Recommended)
-This method allows generated charts (PNGs) to be saved to your local folder.
+## 🐳 Run with Docker (Recommended)
 
+To run the full engineering simulation with the "Black Box" live stream (infinite loop), use these simple commands:
+
+**1. Start the Simulation:**
 ```bash
-docker compose up
+docker compose up -d --build
+```
+
+**2. Watch the Live Dashboard:**
+```bash
+docker logs -f ita_project_we_can_fly
+```
+*(Press `Ctrl + C` to exit the view)*
+
+**3. Stop the Simulation:**
+```bash
+docker compose down
 ```
 
 ### Option B: Standard Docker
