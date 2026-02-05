@@ -11,6 +11,9 @@ This project is aligned with the **DECEA (Departamento de Controle do Espaço A�
 -   **Standards:**
     -   **ICAO Doc 9985:** ATM Security Manual.
     -   **DECEA AIC-N:** Circulars regarding ADS-B implementation phases.
+-   **LGPD (Lei Geral de Proteção de Dados):**
+    -   **Compliance:** This project deals strictly with technical simulation data (flight telemetry and bus signals) and does NOT process personally identifiable information (PII).
+    -   **Privacy by Design:** Algorithms are designed to anonymize aircraft identifiers (ICAO 24-bit addresses) in compliance with data protection standards.
 
 This project explores the intersection of **Aeronautic Cybersecurity** and **Artificial Intelligence**, demonstrating how Machine Learning can defend modern avionics against sophisticated cyber threats.
 
