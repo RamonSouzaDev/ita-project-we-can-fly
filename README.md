@@ -2,9 +2,24 @@
 
 > **"Securing the Skies with Artificial Intelligence"**
 
+## 📜 Regulatory Compliance (DECEA 2030)
+
+This project is aligned with the **DECEA (Departamento de Controle do Espaço Aéreo)** strategic roadmap for CNS/ATM (Communication, Navigation, Surveillance / Air Traffic Management).
+
+-   **ADS-B Out Mandate (2030):** Addresses the upcoming requirement for ADS-B Out in Brazilian Airspace (postponed to 2030), ensuring infrastructure readiness.
+-   **Cybersecurity Provision:** Proactive defense mechanisms for the ADS-B transition period, protecting against spoofing during mixed-mode operations (Radar + ADS-B).
+-   **Standards:**
+    -   **ICAO Doc 9985:** ATM Security Manual.
+    -   **DECEA AIC-N:** Circulars regarding ADS-B implementation phases.
+
 This project explores the intersection of **Aeronautic Cybersecurity** and **Artificial Intelligence**, demonstrating how Machine Learning can defend modern avionics against sophisticated cyber threats.
 
 Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧🇷
+
+> **CREA-SP Registered Project** 🛡️
+> **ART:** LC39711825-2620260207668
+> **Status:** REGISTERED & ACTIVE ✅
+
 
 ---
 
