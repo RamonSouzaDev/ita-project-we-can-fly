@@ -9,7 +9,15 @@ try:
     from src import adsb_spoofing
     adsb_df = adsb_spoofing.generate_flight_data(n_samples=500, contamination=0.1)
     model, scaler = adsb_spoofing.train_detector(adsb_df)
-    print("✅ ADS-B Model Trained Successfully")
+    
+    # Generate predictions for plotting
+    X_test = scaler.transform(adsb_df[['altitude_delta', 'velocity_delta', 'rssi']])
+    preds = model.predict(X_test)
+    
+    # Generate Plot
+    print(f"Generating plot to {os.getcwd()}/adsb_detection_result.png")
+    adsb_spoofing.plot_results(adsb_df, preds)
+    print("✅ ADS-B Model Trained & Plot Generated")
     
     print("\n[TEST] Running Avionics Bus Anomaly Simulation...")
     from src import avionics_anomaly
