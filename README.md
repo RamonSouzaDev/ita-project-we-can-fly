@@ -9,6 +9,9 @@ This project is aligned with the **DECEA (Departamento de Controle do Espaço A�
 -   **ADS-B Out Mandate (2030):** Addresses the upcoming requirement for ADS-B Out in Brazilian Airspace (postponed to 2030), ensuring infrastructure readiness.
 -   **Cybersecurity Provision:** Proactive defense mechanisms for the ADS-B transition period, protecting against spoofing during mixed-mode operations (Radar + ADS-B).
 -   **Standards:**
+    -   **ISO/IEC 27001:** Information Security Management verification practices.
+    -   **OWASP:** Adherence to Application Security verification standards (ASVS) where applicable.
+    -   **NIST SP 800-53:** Security and Privacy Controls for Federal Information Systems (comparative baseline).
     -   **ICAO Doc 9985:** ATM Security Manual.
     -   **DECEA AIC-N:** Circulars regarding ADS-B implementation phases.
 -   **LGPD (Lei Geral de Proteção de Dados):**
