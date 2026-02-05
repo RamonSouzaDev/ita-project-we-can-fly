@@ -17,6 +17,10 @@ This project explores the intersection of **Aeronautic Cybersecurity** and **Art
 Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧🇷
 **CREA-SP Registered Software Engineer:** 5071785098
 
+### 🗳️ Professional Leadership
+*   **Sindpd Presidency Candidate (Software Category):** Official communication sent to the *Sindicato dos Trabalhadores em Processamento de Dados (Sindpd)* regarding presidency candidacy to represent the Software Engineering category.
+*   **CREA-SP Engineering Authority:** Fully registered and compliant, advocating for the formal recognition and regulation of Software Engineering in Brazil.
+
 ---
 
 ## 🎓 Academic Credentials & Specializations
