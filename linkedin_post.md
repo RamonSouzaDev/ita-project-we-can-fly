@@ -17,4 +17,7 @@ Inspired by the advancements in our aerospace industry, this project demonstrate
 Check out the code in my new repo:
 🔗 https://github.com/RamonSouzaDev/ita-project-we-can-fly
 
+📧 **Contact:** dwmom@hotmail.com
+🔗 **Profile:** [LinkedIn](https://www.linkedin.com/in/ramon-mendes-b44456164/)
+
 #Aviation #Cybersecurity #ArtificialIntelligence #MachineLearning #Python #Aerospace #FAB #Embraer #Innovation #SoftwareEngineering #DataScience
