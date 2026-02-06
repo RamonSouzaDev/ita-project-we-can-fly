@@ -62,6 +62,22 @@ Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧
 
 ---
 
+## 🏛️ Academic & Regulatory Compliance
+
+This project is currently being submitted to the **RNP (National Education and Research Network)** under the **PGID 2026** call (Management of Digital Identities).
+
+* **Status:** Proposal in Development / Submission Phase.
+* **Research Line:** AI-based attacks & Identity for non-humans.
+* **Academic Lead:** Dr. Renato Fernandez (UNG - Universidade de Guarulhos)
+    *   *Department:* Computer Science & Information Technology.
+    *   *Role:* Distinguished Professor & AI Researcher.
+* **Professional Responsibility:**
+    * **Engineer:** Ramon Mendes (CREA-SP: 5071785098)
+    * **ART (Anotação de Responsabilidade Técnica):** LC39711825-2620260207668
+* **Institutional Alignment:** Integrated with CT-GId (Identity Management Technical Committee) discussion list.
+
+---
+
 > **CREA-SP Registered Project** 🛡️
 > **ART:** LC39711825-2620260207668
 > **Status:** REGISTERED & ACTIVE ✅
