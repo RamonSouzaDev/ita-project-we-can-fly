@@ -54,6 +54,8 @@ def main():
     print("\n" + "="*60)
     print("   ITA PROJECT: WE CAN FLY - CREA-SP SIMULATION")
     print("   CONTEXT: DECEA 2030 READINESS (ADS-B OUT MANDATE)")
+    print("   RNP PGID 2026: AI-BASED IDENTITY MANAGEMENT TRACK")
+    print("   ART CREA-SP: LC39711825-2620260207668")
     print("="*60 + "\n")
     
     adsb = ADSBSensor()
