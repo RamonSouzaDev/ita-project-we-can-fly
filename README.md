@@ -31,7 +31,11 @@ Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧
     *   **Objective:** Proposal of AI & Cybersecurity strategic project for Aerospace Defense.
     *   **Status:** Registered (Deadline: 05/03/2026).
 
----
+### ⚖️ Forensic Authority & MPSP Alliance
+*   **Civil & Technical Expert (Potential):** Officially enrolled in the **Public Ministry of São Paulo (MPSP)** agreement, positioned to provide technical reports on critical infrastructure failures.
+    *   **Registration:** 9830
+    *   **Reference:** Agreement 006/2023/SECEX/GP
+*   **Forensic Readiness:** The project implements **Chain of Custody** protocols (SHA-256 Hashing) to ensure data integrity for legal proceedings.
 
 ## 🎓 Academic Credentials & Specializations
 
