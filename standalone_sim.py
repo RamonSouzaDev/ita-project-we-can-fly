@@ -1,7 +1,7 @@
-
 import sys
 import time
 import random
+import hashlib
 
 # ==========================================
 # ENGINEERING MODULES (Inline)
@@ -80,7 +80,12 @@ def main():
                 status = "[ALERT: AVIONICS ATTACK]"
                 
             out = f"Cycle {cycle:05d} | Alt: {data_adsb['alt']:05.0f} | Vel: {data_adsb['vel']:03.0f} | {status}"
-            print(out)
+            
+            # --- FORENSIC CHAIN OF CUSTODY (MPSP REQUIREMENT) ---
+            # Generating a cryptographic hash of the event data to ensure non-repudiation.
+            custody_hash = hashlib.sha256(out.encode('utf-8')).hexdigest()[:16]
+            
+            print(f"{out} | HASH: {custody_hash}")
             sys.stdout.flush() # Ensure Docker logs see it immediately
             time.sleep(0.5) # Slower for better visual demo
             
