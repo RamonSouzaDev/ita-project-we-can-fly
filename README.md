@@ -27,6 +27,19 @@ This project is aligned with the **DECEA (Departamento de Controle do Espaço A�
     -   **Compliance:** This project deals strictly with technical simulation data (flight telemetry and bus signals) and does NOT process personally identifiable information (PII).
     -   **Privacy by Design:** Algorithms are designed to anonymize aircraft identifiers (ICAO 24-bit addresses) in compliance with data protection standards.
 
+## ⚖️ Legal Compliance & Safe Harbor
+> **OFFICIAL NOTIFICATION TO AUTHORITIES** 🇧🇷
+
+This project operates under strict **Ethical Research Guidelines (White Hat)** and has been formally communicated to the relevant Brazilian Aviation & Defense Authorities to ensure transparency and legal "Good Faith" (Boa-fé).
+
+*   **ANAC (Agência Nacional de Aviação Civil):** Research Notification Protocoled.
+*   **DECEA (Departamento de Controle do Espaço Aéreo):** Cyber Defense Research Notification Protocoled.
+*   **CENIPA (Centro de Investigação e Prevenção de Acidentes Aeronáuticos):** Safety Collaboration Notification Protocoled.
+*   **MPSP (Ministério Público do Estado de São Paulo):** Technical Expert Registration (Civil Inquiries) - **ID: 9830**.
+*   **CREA-SP (Conselho Regional de Engenharia):** Full Professional Responsibility Assumed by Eng. Ramon Mendes (**CREA: 5071785098**).
+
+*This repository does NOT contain classified military data, real-time exploit tools, or proprietary code from aircraft manufacturers. It is a **Scientific Engineering Simulation**.*
+
 This project explores the intersection of **Aeronautic Cybersecurity** and **Artificial Intelligence**, demonstrating how Machine Learning can defend modern avionics against sophisticated cyber threats.
 
 Created by **Ramon Mendes** - *First Software Engineer in São Paulo State* 🇧🇷
