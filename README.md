@@ -2,7 +2,16 @@
 
 > **"Securing the Skies with Artificial Intelligence"**
 
-## 📜 Regulatory Compliance (DECEA 2030)
+## � Strategic Defense Project (FINEP 2026)
+
+**Official Submission:** "Mais Inovação Brasil - Base Industrial de Defesa"
+- **Project Title:** *We Can Fly: Defesa Aérea e Cibersegurança*
+- **Total Budget Submitted:** **R$ 5,485,800.00** (approx. $1M USD)
+- **Status:** **SUBMITTED FOR ANALYSIS** (Feb 13, 2026)
+- **Scope:** Development of autonomous airspace monitoring using AI and SDR (Software Defined Radio) to strengthen the Brazilian Airspace Control System (SISCEAB).
+- **Strategic Partner:** **ITA (Instituto Tecnológico de Aeronáutica)** - Formal consulting and validation partnership included.
+
+## �📜 Regulatory Compliance (DECEA 2030)
 
 This project is aligned with the **DECEA (Departamento de Controle do Espaço Aéreo)** strategic roadmap for CNS/ATM (Communication, Navigation, Surveillance / Air Traffic Management).
 
@@ -85,7 +94,7 @@ This project is currently being submitted to the **RNP (National Education and R
 > **CREA-SP Registered Project** 🛡️
 > **ART:** [ART PROTEGIDA]
 > **CAT Protocol:** A0213012026 (Tracking Started 13/02/2026) 📅
-> **Status:** UNDER ADMINISTRATIVE ANALYSIS (Deadline: 05/03/2026) ⏳
+> **Status:** **AWAITING BANK CLEARANCE** (Analysis starts by 18/02/2026) ⏳
 > **Compliance:** DECEA 2030 ADS-B Mandate Readiness
 
 ---
