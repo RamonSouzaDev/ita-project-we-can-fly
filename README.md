@@ -84,7 +84,8 @@ This project is currently being submitted to the **RNP (National Education and R
 
 > **CREA-SP Registered Project** 🛡️
 > **ART:** [ART PROTEGIDA]
-> **Status:** REGISTERED & ACTIVE ✅
+> **CAT Protocol:** A0213012026 (Tracking Started 13/02/2026) 📅
+> **Status:** UNDER ADMINISTRATIVE ANALYSIS (Deadline: 05/03/2026) ⏳
 > **Compliance:** DECEA 2030 ADS-B Mandate Readiness
 
 ---
