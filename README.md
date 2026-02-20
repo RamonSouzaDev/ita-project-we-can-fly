@@ -124,17 +124,19 @@ With initiatives like the **FAB's Aerospace Cyber Defense Center (CDCAER)** and 
 
 ---
 
-## 🚀 Key Modules
+## 🚀 Key Modules (TRL-5 Architecture)
 
-### 1. ADS-B Spoofing Detector (`src/adsb_spoofing.py`)
-**Threat**: Attackers broadcasting fake aircraft positions ("Ghost Aircraft") to confuse Air Traffic Control (ATC) or TCAS systems.
-**Solution**: An **Isolation Forest** model that analyzes flight physics (velocity delta, altitude delta, signal strength).
-**Outcome**: Flags "Impossible Physics" (e.g., an aircraft teleporting or accelerating to Mach 5 instantly).
+### 1. ADS-B Spoofing & MLAT-Correlation (`src/adsb_spoofing.py`)
+**Framework**: **DO-260B (1090 MHz Extended Squitter)**
+**Threat**: Adversaries broadcasting fake aircraft signals ("Ghost Aircraft") to trigger false TCAS Resolution Advisories.
+**Solution**: An **Object-Oriented Isolation Forest** model bounded to a 70% CPU limit, tracking kinematic envelopes and preparing for Multilateration (MLAT) Time Difference of Arrival (TDOA) correlation.
+**Outcome**: Neutralizes "Impossible Physics" tracks, validating physical layer integrity (e.g., RSSI consistency).
 
-### 2. Avionics Anomaly Hunter (`src/avionics_anomaly.py`)
-**Threat**: Malware injecting malicious commands into the **ARINC 429** data bus (e.g., commanding "Landing Gear DOWN" while cruising at 35,000 ft).
-**Solution**: A **One-Class SVM** that learns the "contextual envelope" of normal flight phases.
-**Outcome**: Detects contextually dangerous commands that standard firewalls might miss.
+### 2. Avionics Bar ARINC 429 Bus Defense (`src/avionics_anomaly.py`)
+**Framework**: **DO-356A (LRU Insularity)**
+**Threat**: A compromised Line Replaceable Unit (LRU) injecting validly structured but catastrophic commands (Logic Bombs).
+**Solution**: An **Object-Oriented One-Class SVM** parsing 32-bit BNR ARINC 429 labels within continuous flight regimes.
+**Outcome**: Flag alerts and neutralizes contextually catastrophic anomalies, such as deploying the landing gear (`VLO` Limit Exceeded) while cruising at Mach 0.78 / >270 KTAS.
 
 ---
 
