@@ -13,7 +13,7 @@
 
 ## 🎥 Official Project Pitch (FINEP Compliance)
 **Required for Habilitation Phase:**
-- **Video Link:** [YouTube/GitHub Video Pitch](https://github.com/RamonSouzaDev/ita-project-we-can-fly)
+- **Video Link:** [Official Video Pitch (YouTube)](https://youtu.be/4_bMn6LLMrs)
 - **Proponent:** Ramon Mendes
 - **Official Contact:** dwmom@hotmail.com
 - **Note:** This link is public and unrestricted to ensure evaluation by the FINEP committee.
