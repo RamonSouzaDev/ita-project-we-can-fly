@@ -7,9 +7,16 @@
 **Official Submission:** "Mais Inovação Brasil - Base Industrial de Defesa"
 - **Project Title:** *We Can Fly: Defesa Aérea e Cibersegurança*
 - **Total Budget Submitted:** **R$ 5,485,800.00** (approx. $1M USD)
-- **Status:** **SUBMITTED FOR ANALYSIS** (Feb 13, 2026)
+- **Status:** **UNDER APPEAL / HABILITATION PHASE** (Feb 25, 2026)
 - **Scope:** Development of autonomous airspace monitoring using AI and SDR (Software Defined Radio) to strengthen the Brazilian Airspace Control System (SISCEAB).
 - **Strategic Partner:** **ITA (Instituto Tecnológico de Aeronáutica)** - Formal consulting and validation partnership included.
+
+## 🎥 Official Project Pitch (FINEP Compliance)
+**Required for Habilitation Phase:**
+- **Video Link:** [YouTube/GitHub Video Pitch](https://github.com/RamonSouzaDev/ita-project-we-can-fly)
+- **Proponent:** Ramon Mendes
+- **Official Contact:** dwmom@hotmail.com
+- **Note:** This link is public and unrestricted to ensure evaluation by the FINEP committee.
 
 ## �📜 Regulatory Compliance (DECEA 2030)
 
