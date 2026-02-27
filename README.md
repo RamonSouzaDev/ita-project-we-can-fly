@@ -33,6 +33,9 @@ This project is aligned with the **DECEA (Departamento de Controle do Espaço A�
 -   **LGPD (Lei Geral de Proteção de Dados):**
     -   **Compliance:** This project deals strictly with technical simulation data (flight telemetry and bus signals) and does NOT process personally identifiable information (PII).
     -   **Privacy by Design:** Algorithms are designed to anonymize aircraft identifiers (ICAO 24-bit addresses) in compliance with data protection standards.
+-   **Global AI Regulatory Acts (EU AI Act & Brazil PL 2338/2023):**
+    -   **High-Risk System Compliance:** Implements Explainable AI (XAI) transparent logging for safety-critical (aerospace) systems.
+    -   **Human-in-the-loop (Forensic Audit):** Every algorithmic decision that neutralizes flight commands or flags ghost aircraft generates an immutable SHA-256 forensic audit trail, preventing "Black Box" model illegality.
 
 ## ⚖️ Legal Compliance & Safe Harbor
 > **OFFICIAL NOTIFICATION TO AUTHORITIES** 🇧🇷
@@ -136,14 +139,14 @@ With initiatives like the **FAB's Aerospace Cyber Defense Center (CDCAER)** and 
 ### 1. ADS-B Spoofing & MLAT-Correlation (`src/adsb_spoofing.py`)
 **Framework**: **DO-260B (1090 MHz Extended Squitter)**
 **Threat**: Adversaries broadcasting fake aircraft signals ("Ghost Aircraft") to trigger false TCAS Resolution Advisories.
-**Solution**: An **Object-Oriented Isolation Forest** model bounded to a 70% CPU limit, tracking kinematic envelopes and preparing for Multilateration (MLAT) Time Difference of Arrival (TDOA) correlation.
-**Outcome**: Neutralizes "Impossible Physics" tracks, validating physical layer integrity (e.g., RSSI consistency).
+**Solution**: An **Object-Oriented Isolation Forest** model bounded to a 70% CPU limit, tracking kinematic envelopes and preparing for Multilateration (MLAT) Time Difference of Arrival (TDOA) correlation. Features **Explainable AI (XAI)** outputs with SHA-256 forensic hashing.
+**Outcome**: Neutralizes "Impossible Physics" tracks, validating physical layer integrity (e.g., RSSI consistency), producing an immutable audit trail for legal compliance.
 
 ### 2. Avionics Bar ARINC 429 Bus Defense (`src/avionics_anomaly.py`)
 **Framework**: **DO-356A (LRU Insularity)**
 **Threat**: A compromised Line Replaceable Unit (LRU) injecting validly structured but catastrophic commands (Logic Bombs).
-**Solution**: An **Object-Oriented One-Class SVM** parsing 32-bit BNR ARINC 429 labels within continuous flight regimes.
-**Outcome**: Flag alerts and neutralizes contextually catastrophic anomalies, such as deploying the landing gear (`VLO` Limit Exceeded) while cruising at Mach 0.78 / >270 KTAS.
+**Solution**: An **Object-Oriented One-Class SVM** parsing 32-bit BNR ARINC 429 labels within continuous flight regimes. Features **Explainable AI (XAI)** outputs with SHA-256 forensic hashing.
+**Outcome**: Flag alerts and neutralizes contextually catastrophic anomalies, such as deploying the landing gear (`VLO` Limit Exceeded) while cruising at Mach 0.78 / >270 KTAS, recording the exact mathematical vector negated into a legal audit log.
 
 ---
 
