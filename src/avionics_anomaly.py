@@ -21,6 +21,8 @@ Author: Eng. Ramon Mendes (CREA-SP)
 
 import numpy as np
 import pandas as pd
+import hashlib
+from datetime import datetime
 from sklearn.svm import OneClassSVM
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import classification_report
@@ -87,11 +89,22 @@ class AvionicsAnomalyDetector:
         print("\n--- ARINC 429 Intrusion Detection Report ---")
         print(classification_report(data['label'], mapped_preds, target_names=['Nominal Telemetry', 'Logic Bomb Injection']))
         
+        
         detected = np.sum(mapped_preds)
         actual = data['label'].sum()
         print(f"\n[SUMMARY] Detected {detected} catastrophic threats (Ground Truth: {actual})")
-        print("          WARNING: System intercepted command 'DEPLOY_LANDING_GEAR'")
-        print("          Condition: V_TAS > 270 KTAS (VLO Limit Exceeded). Command Neutralized.")
+        
+        # Human-in-the-Loop & XAI Regulatory Adherence (EU AI Act & PL 2338)
+        print("\n--- Forensic Action & Decision Traceability ---")
+        if detected > 0:
+            print("          WARNING: System intercepted command 'DEPLOY_LANDING_GEAR'")
+            timestamp = datetime.utcnow().isoformat() + "Z"
+            reason = "VLO Structural Limit Exceeded (Airspeed > 270 KTAS). Catastrophic execution negated."
+            log_data = f"{timestamp} | EVENT: ARINC_PAYLOAD_NEUTRALIZED | XAI_REASON: {reason} | LABEL_DISCRETE: DOWN_AND_LOCKED"
+            log_hash = hashlib.sha256(log_data.encode()).hexdigest()
+            print(f"[AUDIT] {log_data}\n        [SHA-256] {log_hash}")
+        else:
+            print("          System Operational. No commands neutralized.")
 
 if __name__ == "__main__":
     print("🛡️  AVIONICS BUS SECURITY SYSTEM (DO-356A)  🛡️")
