@@ -1,0 +1,15 @@
+﻿e531f4c docs(compliance): update README with complete EU AI Act and PL 2338/2023 legal bounds
+48da4dd feat(compliance): add XAI explainability and secure audit trailing for PL 2338 / EU AI Act High-Risk adherence
+e73f5c8 docs: finalize official video link and proponent details for FINEP appeal
+70b84db docs: update project compliance data for FINEP appeal - Ramon Mendes
+c93f3e8 Merge branch 'main' into development
+445eb37 docs(readme): upgrade key modules section with TRL-5 and MLAT/DO-356A DO-260B specifications
+6f69119 feat(aero): upgrade core AI defense models referencing DO-260B and DO-356A frameworks (OOP integration)
+47dfec0 feat(aero): implement DECEA SIRIUS 2030, DO-260B, MLAT protocols and accessibility/ethics parameters
+95211fd docs: generate advanced tactical documentation for aero-cybersecurity (English)
+19bf9a8 refactor: upgrade AI security models to Object-Oriented patterns (OOP)
+5ab255f docs: add legal compliance and safe harbor notifications to README
+997ed92 Update project status: FINEP submission and CREA compliance
+039b94e CAT Protocol A0213012026 & ABNT Standards Compliance (12207, 27001, 25010)
+6508af1 Standardization: Implement ABNT NBR 10719/27037 in Technical Docs
+13f334a MPSP Phase 2 & 3: Service Catalog and Inquiry Roadmap
