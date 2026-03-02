@@ -38,7 +38,7 @@ if st.button("Run Simulation"):
         adsb_df = detector.generate_flight_data(n_samples=n_samples)
         detector.train_detector(adsb_df)
 
-        X_test_adsb = detector.scaler.transform(adsb_df[['altitude_delta', 'velocity_delta', 'rssi']])
+        X_test_adsb = detector.scaler.transform(adsb_df[['altitude_delta', 'velocity_delta', 'rssi', 'latency_ms']])
         preds_adsb = detector.model.predict(X_test_adsb)
         mapped_preds_adsb = [1 if p == -1 else 0 for p in preds_adsb]
 

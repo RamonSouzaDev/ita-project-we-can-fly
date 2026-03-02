@@ -44,7 +44,7 @@ class ADSBSpoofingDetector:
         # Execution bounded natively to prevent OS degradation, satisfying the 70% CPU resource constraint.
         self.model = IsolationForest(contamination=self.contamination, random_state=self.random_state)
         self.scaler = StandardScaler()
-        self.features = ['altitude_delta', 'velocity_delta', 'rssi']
+        self.features = ['altitude_delta', 'velocity_delta', 'rssi', 'latency_ms']
         
     def generate_flight_data(self, n_samples: int = 1000) -> pd.DataFrame:
         """Generates synthetic DO-260B flight data with injected 1090ES spoofing anomalies."""
@@ -56,6 +56,7 @@ class ADSBSpoofingDetector:
             'altitude_delta': np.random.normal(0, 50, n_normal), # Realistic ft/min climb rates
             'velocity_delta': np.random.normal(0, 10, n_normal), # Standard acceleration (knots/s)
             'rssi': np.random.normal(-50, 5, n_normal),          # Consistent receiver signal strength
+            'latency_ms': np.random.normal(20, 5, n_normal),     # Nominal RF propagation delay (DO-260B)
             'label': 0
         })
         
@@ -65,6 +66,7 @@ class ADSBSpoofingDetector:
             'altitude_delta': np.random.normal(0, 2000, n_spoof), # Teleportation / Impossible climbs
             'velocity_delta': np.random.normal(0, 500, n_spoof),  # Extreme velocity vectors
             'rssi': np.random.normal(-90, 10, n_spoof),           # Anomalous/Inconsistent signal strength
+            'latency_ms': np.random.normal(250, 50, n_spoof),     # High MLAT TDOA delay due to rebroadcasting
             'label': 1
         })
         
@@ -96,7 +98,7 @@ class ADSBSpoofingDetector:
         print("\n--- Forensic AI Audit (XAI & Human-in-the-Loop Logging) ---")
         for i in range(min(3, anomalies_detected)):
             timestamp = datetime.utcnow().isoformat() + "Z"
-            reason = "Kinematic structural violation: Alt/Vel/RSSI envelope exceeded bounds"
+            reason = "Kinematic structural violation: Alt/Vel/RSSI/MLAT-Latency envelope exceeded bounds"
             log_data = f"{timestamp} | EVENT: GHOST_AIRCRAFT_DETECTED | XAI_REASON: {reason} | ACTION: TRACK_ISOLATED"
             log_hash = hashlib.sha256(log_data.encode()).hexdigest()
             print(f"[AUDIT] {log_data}\n        [SHA-256] {log_hash}")
