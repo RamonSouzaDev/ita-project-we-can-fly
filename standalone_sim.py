@@ -8,23 +8,28 @@ import hashlib
 # ==========================================
 
 class ADSBSensor:
-    def __init__(self, sensor_id="RADAR-1"):
+    def __init__(self, sensor_id="RADAR-1", external_endpoint=None):
         self.sensor_id = sensor_id
+        self.external_endpoint = external_endpoint # Prepared for SDR/Hardware injection (HITL)
 
     def stream_flight_data(self, duration_sec=100, anomaly_prob=0.1):
-        # Physics State
+        # Physics State Fallback (used when external_endpoint is None)
         alt = 32000.0
         vel = 480.0
         
         for _ in range(duration_sec):
+            if self.external_endpoint:
+                # Placeholder for Phase 4: Sockets/REST RF ingestion from SDR hardware
+                pass 
+
             is_spoof = random.random() < anomaly_prob
             
             if is_spoof:
-                # Anomaly: Physics Jump
+                # Anomaly: Physics Jump (Spoofing Attack)
                 alt_out = alt + random.normalvariate(0, 2000)
                 vel_out = vel + random.normalvariate(0, 500)
             else:
-                # Normal
+                # Normal Flight Envelope
                 delta_alt = random.normalvariate(0, 50)
                 delta_vel = random.normalvariate(0, 10)
                 alt += delta_alt
@@ -35,17 +40,25 @@ class ADSBSensor:
             yield {
                 "alt": alt_out,
                 "vel": vel_out,
-                "is_spoofed": is_spoof
+                "is_spoofed": is_spoof,
+                "source": "EXTERNAL_SDR" if self.external_endpoint else "SIMULATED_FALLBACK"
             }
 
 class Arinc429Bus:
-    def __init__(self, bus_name="BUS-A"):
+    def __init__(self, bus_name="BUS-A", external_endpoint=None):
         self.bus_name = bus_name
+        self.external_endpoint = external_endpoint # Prepared for HITL injection
 
     def stream_bus_traffic(self, duration_cycles=100, injection_prob=0.05):
         for _ in range(duration_cycles):
+            if self.external_endpoint:
+                 # Placeholder for Phase 4: ARINC 429 hardware bus listener
+                 pass
             is_inject = random.random() < injection_prob
-            yield {"is_injection": is_inject}
+            yield {
+                "is_injection": is_inject,
+                "source": "EXTERNAL_BUS" if self.external_endpoint else "SIMULATED_FALLBACK"
+            }
 
 # ==========================================
 # MAIN MISSION LOOP
