@@ -150,6 +150,12 @@ With initiatives like the **FAB's Aerospace Cyber Defense Center (CDCAER)** and 
 
 ---
 
+## 🗺️ Tactical Roadmap (Civil Protection & Defense)
+*   ✅ **Priority 1 (Achieved):** Real-time Cyber-Defense Dashboard integration using Object-Oriented refactoring.
+*   ✅ **Priority 4 (Initial Phase):** Hardware-in-The-Loop (HITL) telemetry ingestion points prepared in `standalone_sim.py`.
+*   ⏳ **Priority 2 (Upcoming):** MLAT (Multilateration) & DO-260B signal analysis and physical delay modeling.
+*   ⏳ **Priority 3 (Upcoming):** Scaled Tactical Forensic Automation for Dense Traffic (5000+ simultaneous aircraft).
+
 ## 📦 Installation
 
 ```bash
@@ -177,26 +183,26 @@ python src/avionics_anomaly.py
 ```
 *Output: Detection of malicious 'Gear Down' injections during high-speed cruise.*
 
-## 🐳 Run with Docker
-
-You can run the entire simulation in a container without installing Python locally.
-
 ## 🐳 Run with Docker (Recommended)
 
-To run the full engineering simulation with the "Black Box" live stream (infinite loop), use these simple commands:
+You can run the entire simulation and the tactical dashboard in an isolated container without installing Python locally.
 
-**1. Start the Simulation:**
+**1. Start the Simulation & Dashboard:**
 ```bash
 docker compose up -d --build
 ```
 
-**2. Watch the Live Dashboard:**
+**2. Access the Tactical Dashboard (Streamlit):**
+Open your local web browser and navigate strictly to the localhost binding (safeguarded against external access):
+👉 **[http://localhost:8501](http://localhost:8501)**
+
+**3. Watch the Live Background Terminal (Optional):**
 ```bash
 docker logs -f ita_project_we_can_fly
 ```
-*(Press `Ctrl + C` to exit the view)*
+*(Press `Ctrl + C` to exit the log view)*
 
-**3. Stop the Simulation:**
+**4. Stop the System:**
 ```bash
 docker compose down
 ```
@@ -206,7 +212,7 @@ docker compose down
 # 1. Build the image
 docker build -t ita-project-we-can-fly .
 
-# 2. Run the simulations
+# 2. Run the simulation
 docker run ita-project-we-can-fly
 ```
 
