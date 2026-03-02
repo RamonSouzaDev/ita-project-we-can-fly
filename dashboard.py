@@ -17,9 +17,8 @@ import os
 
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-
-from adsb_spoofing import generate_flight_data, train_detector, plot_results
-from avionics_anomaly import simulate_arinc_bus, train_one_class_svm
+from adsb_spoofing import ADSBSpoofingDetector
+from avionics_anomaly import AvionicsAnomalyDetector
 
 st.set_page_config(page_title="ITA Cybersecurity Dashboard", page_icon="✈️", layout="wide")
 
@@ -35,11 +34,12 @@ if st.button("Run Simulation"):
     with st.spinner("Generating data and training models..."):
         # ADS-B Section
         st.header("🛩️ ADS-B Spoofing Detection")
-        adsb_df = generate_flight_data(n_samples=n_samples, contamination=contamination)
-        model_adsb, scaler_adsb = train_detector(adsb_df)
+        detector = ADSBSpoofingDetector(contamination=contamination)
+        adsb_df = detector.generate_flight_data(n_samples=n_samples)
+        detector.train_detector(adsb_df)
 
-        X_test_adsb = scaler_adsb.transform(adsb_df[['altitude_delta', 'velocity_delta', 'rssi']])
-        preds_adsb = model_adsb.predict(X_test_adsb)
+        X_test_adsb = detector.scaler.transform(adsb_df[['altitude_delta', 'velocity_delta', 'rssi']])
+        preds_adsb = detector.model.predict(X_test_adsb)
         mapped_preds_adsb = [1 if p == -1 else 0 for p in preds_adsb]
 
         col1, col2 = st.columns(2)
@@ -68,11 +68,12 @@ if st.button("Run Simulation"):
 
         # Avionics Section
         st.header("🛡️ Avionics Bus Anomaly Detection")
-        avionics_df = simulate_arinc_bus(n_samples=n_samples, contamination=contamination)
-        model_av, scaler_av = train_one_class_svm(avionics_df)
+        detector_av = AvionicsAnomalyDetector(contamination=contamination)
+        avionics_df = detector_av.simulate_arinc_bus(n_samples=n_samples)
+        detector_av.train_detector(avionics_df)
 
-        X_test_av = scaler_av.transform(avionics_df[['airspeed', 'altitude', 'gear_status']])
-        preds_av = model_av.predict(X_test_av)
+        X_test_av = detector_av.scaler.transform(avionics_df[['airspeed', 'altitude', 'gear_status']])
+        preds_av = detector_av.model.predict(X_test_av)
         mapped_preds_av = [1 if p == -1 else 0 for p in preds_av]
 
         col3, col4 = st.columns(2)
