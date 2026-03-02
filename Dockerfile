@@ -12,6 +12,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy source code
 COPY src/ ./src/
+COPY dashboard.py .
+EXPOSE 8501
 # Default command: Run the Engineering Simulation (Standalone)
 COPY standalone_sim.py .
 CMD ["python", "standalone_sim.py"]
