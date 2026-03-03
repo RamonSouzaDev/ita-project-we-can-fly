@@ -148,6 +148,10 @@ With initiatives like the **FAB's Aerospace Cyber Defense Center (CDCAER)** and 
 **Solution**: An **Object-Oriented One-Class SVM** parsing 32-bit BNR ARINC 429 labels within continuous flight regimes. Features **Explainable AI (XAI)** outputs with SHA-256 forensic hashing.
 **Outcome**: Flag alerts and neutralizes contextually catastrophic anomalies, such as deploying the landing gear (`VLO` Limit Exceeded) while cruising at Mach 0.78 / >270 KTAS, recording the exact mathematical vector negated into a legal audit log.
 
+### 3. AI Validation Edge Node (SIRIUS & LGPD) (`src/ai_sirius_validator.py`)
+**Framework**: **DECEA SIRIUS & Brazilian LGPD**
+**Functionality**: Integration of Machine Learning matrices dedicated to compliance with operational safety standards. Employs mathematically weighted logic (Safety Impact, Cyber Risk, Compliance) to validate inputs strictly for civilian aerospace infrastructure operations without retaining any Personal Identifiable Information (PII).
+
 ---
 
 ## 🗺️ Tactical Roadmap (Civil Protection & Defense)
