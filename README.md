@@ -157,11 +157,15 @@ With initiatives like the **FAB's Aerospace Cyber Defense Center (CDCAER)** and 
 **Framework**: **Google Cloud (BigQuery, Vertex AI, ARIMA_PLUS)**
 **Functionality**: A TRL-6 level ingestion PoC bridging edge simulation nodes securely to Google Cloud. Only LGPD-compliant SHA-256 forensic hashes and anonymous operational metrics are transmitted. It employs Google's Vertex AI (Gemini Models) to simulate real-time aeronautic cyber-threat intelligence responses.
 
+### 5. Hardware-in-The-Loop (HITL) SDR Node (`sdr_hitl_edge_node.py`)
+**Framework**: **Software Defined Radio (RTL-SDR / dump1090)**
+**Functionality**: Elevates the project to TRL-7 (Operational Environment). Integrates physical USB radio receivers capturing live 1090MHz Baseband ADS-B signals. Parses real-world, live commercial flights through the AI Threat Engine and offloads sanitized hashes to the Google Cloud TRL-6 integration.
+
 ---
 
 ## 🗺️ Tactical Roadmap (Civil Protection & Defense)
 *   ✅ **Priority 1 (Achieved):** Real-time Cyber-Defense Dashboard integration using Object-Oriented refactoring.
-*   ✅ **Priority 4 (Initial Phase):** Hardware-in-The-Loop (HITL) telemetry ingestion points prepared in `standalone_sim.py`.
+*   ✅ **Priority 4 (Achieved):** Hardware-in-The-Loop (HITL) telemetry ingestion via TCP SDR Port (TRL-7 Readiness).
 *   ✅ **Priority 2 (Achieved):** MLAT (Multilateration) & DO-260B signal analysis and physical delay modeling.
 *   ✅ **Priority 3 (Achieved):** Scaled Tactical Forensic Automation for Dense Traffic (5000+ simultaneous aircraft).
 *   ✅ **Priority 5 (Achieved):** Google Vertex AI & Gemini Models integration for Edge-to-Cloud forecasting (TRL-6 Readiness).
