@@ -152,6 +152,11 @@ With initiatives like the **FAB's Aerospace Cyber Defense Center (CDCAER)** and 
 **Framework**: **DECEA SIRIUS & Brazilian LGPD**
 **Functionality**: Integration of Machine Learning matrices dedicated to compliance with operational safety standards. Employs mathematically weighted logic (Safety Impact, Cyber Risk, Compliance) to validate inputs strictly for civilian aerospace infrastructure operations without retaining any Personal Identifiable Information (PII).
 
+
+### 4. Edge-to-Cloud Vertex AI / Gemini Integration (`integration_edge_vertex.py`)
+**Framework**: **Google Cloud (BigQuery, Vertex AI, ARIMA_PLUS)**
+**Functionality**: A TRL-6 level ingestion PoC bridging edge simulation nodes securely to Google Cloud. Only LGPD-compliant SHA-256 forensic hashes and anonymous operational metrics are transmitted. It employs Google's Vertex AI (Gemini Models) to simulate real-time aeronautic cyber-threat intelligence responses.
+
 ---
 
 ## 🗺️ Tactical Roadmap (Civil Protection & Defense)
@@ -159,6 +164,7 @@ With initiatives like the **FAB's Aerospace Cyber Defense Center (CDCAER)** and 
 *   ✅ **Priority 4 (Initial Phase):** Hardware-in-The-Loop (HITL) telemetry ingestion points prepared in `standalone_sim.py`.
 *   ✅ **Priority 2 (Achieved):** MLAT (Multilateration) & DO-260B signal analysis and physical delay modeling.
 *   ✅ **Priority 3 (Achieved):** Scaled Tactical Forensic Automation for Dense Traffic (5000+ simultaneous aircraft).
+*   ✅ **Priority 5 (Achieved):** Google Vertex AI & Gemini Models integration for Edge-to-Cloud forecasting (TRL-6 Readiness).
 
 ## 📦 Installation
 
