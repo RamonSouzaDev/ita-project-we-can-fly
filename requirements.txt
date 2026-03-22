@@ -6,3 +6,6 @@ seaborn
 jupyter
 pytest
 streamlit
+google-cloud-bigquery
+google-api-core
+tensorflow
