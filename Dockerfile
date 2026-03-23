@@ -1,19 +1,24 @@
-# Base Image: Lightweight Python
-FROM python:3.12-slim
+# Dockerfile
+# Imagem Oficial leve para o Web App do Agente
+FROM python:3.11-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy dependencies
+# Instalar dependências necessárias para Flask e Vertex AI GC SDK
 COPY requirements.txt .
-
-# Install dependencies (no cache for smaller image)
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install flask google-genai gunicorn
 
-# Copy source code
-COPY src/ ./src/
-COPY dashboard.py .
-EXPOSE 8501
-# Default command: Run the Engineering Simulation (Standalone)
-COPY standalone_sim.py .
-CMD ["python", "standalone_sim.py"]
+# Copiar a arquitetura do agente
+COPY src/ /app/src/
+
+# Configurar variáveis de Ambiente Padrão
+ENV PORT=8080
+ENV GOOGLE_CLOUD_PROJECT=ita-wecanfly-v2-dev
+ENV GOOGLE_CLOUD_LOCATION=us-central1
+
+# Expor a porta 8080
+EXPOSE 8080
+
+# Comando para Iniciar o motor Gunicorn na nuvem
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "src.agent_cloud_engine:app"]
