@@ -1,6 +1,6 @@
 # Dockerfile
 # Imagem Oficial leve para o Web App do Agente
-FROM python:3.11-slim
+FROM python:3.14-slim
 
 WORKDIR /app
 
