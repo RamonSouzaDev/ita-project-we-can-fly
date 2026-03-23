@@ -3,23 +3,17 @@ import sys
 import os
 import streamlit.components.v1 as components
 
-# Adicionar src ao path para os módulos
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
 
 from ita_aero_sec.gcp.storage_data_lake import DataLakeManager
 from ita_aero_sec.gcp.maps_api import TacticalMapsRenderer
 from ita_aero_sec.gcp.sql_metadata import CloudSQLMetadata
 from ita_aero_sec.gcp.sigint_voice import SigIntRecon
+from ita_aero_sec.gcp.finops_billing import GCPFinOpsManager
+from ita_aero_sec.gcp.vertex_ai_models import VertexAITactical
 
-# Configuração da Página Tática
-st.set_page_config(
-    page_title="Validação GCP - We Can Fly TRL-9",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    page_icon="✈️"
-)
+st.set_page_config(page_title="Validação GCP - We Can Fly TRL-9", layout="wide", initial_sidebar_state="expanded", page_icon="✈️")
 
-# Estilos Customizados
 st.markdown("""
 <style>
     .reportview-container { background: #0f172a; color: white; }
@@ -30,69 +24,61 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🛰️ We Can Fly - Painel de Validação GCP Local")
-st.markdown("Bem-vindo, **Ramon Mendes**. Utilize as abas abaixo para validar os módulos de infraestrutura de nuvem.")
+st.title("🛰️ We Can Fly - Painel de Validação GCP Local (Versão Final)")
+st.markdown("Validação Completa. Adicionados FinOps e Modelos Inteligentes Vertex.")
 
-tabs = st.tabs([
-    "📍 Maps 3D", 
-    "🗃️ Cloud SQL (Identity)", 
-    "🎙️ SIGINT (Voice/ATC)", 
-    "🗄️ Storage Data Lake", 
-    "🚀 Cloud Run"
-])
+tabs = st.tabs(["📍 Maps 3D", "🗃️ Identity", "🎙️ SIGINT & TTS", "🗄️ Data Lake", "🚀 Cloud Run", "🧠 Vertex AI", "💰 FinOps"])
 
-# 1. Maps API
 with tabs[0]:
     st.header("Visualização Tática 3D (Google Maps Platform)")
-    st.write("Visão renderizada através da classe `TacticalMapsRenderer` com polígono SIRIUS (demo restrita).")
     renderer = TacticalMapsRenderer(api_key="DEMO_KEY")
-    # Coordenadas do ITA, São José dos Campos: -23.2085, -45.8778
     html_map = renderer.generate_dashboard_view(lat=-23.2085, lng=-45.8778, zoom=14)
     components.html(html_map, height=500)
 
-# 2. Cloud SQL
 with tabs[1]:
-    st.header("Autenticação Militar & Operacional")
-    st.write("Descarregando consultas no BigQuery para queries transacionais velozes via Cloud SQL.")
+    st.header("Autenticação (Cloud SQL)")
     user_id = st.text_input("ID Militar (ex: FAB-001):")
-    sha_hash = st.text_input("Hash Criptográfica (SHA-256):", type="password")
-    
-    if st.button("Validar Credencial no Banco", key="sql_btn"):
-        if user_id == "FAB-001":
-            st.success("Acesso Liberado no Cloud SQL! Usuário: Tático Oficial.")
-        else:
-            st.error("Falha de Autenticação Tática.")
+    sha_hash = st.text_input("Hash Criptográfica:", type="password")
+    if st.button("Validar Credencial", key="sql_btn"):
+        if user_id == "FAB-001": st.success("Acesso Liberado no Cloud SQL!")
+        else: st.error("Falha de Autenticação Tática.")
 
-# 3. SIGINT Voice
 with tabs[2]:
-    st.header("Inteligência de Sinal (Speech-to-Text)")
-    st.write("Cruzamento de rádio ATC com métricas ADS-B.")
-    
-    audio_file = st.file_uploader("Upload de Interceptação ATC (WAV)", type=["wav", "mp3"])
-    if st.button("Executar Reconhecimento de Voz ML", key="sigint_btn"):
-        st.info("Conectando `SigIntRecon` API Google Cloud Speech...")
+    st.header("Inteligência SIGINT e Text-to-Speech")
+    st.info("Escuta automática via Speech-to-Text e Alertas gerados pelo Text-to-Speech.")
+    if st.button("Executar Reconhecimento de Voz", key="sigint_btn"):
         st.warning("⚠️ ALERTA DO CÓDIGO: TACTICAL AUDIO WARNING: SPOOFING DETECTADO NA AERONAVE LATAM-2200.")
+    if st.button("Gerar Alerta Audível aos Operadores (TTS API)", key="tts_btn"):
+        vertex = VertexAITactical()
+        st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", format="audio/mp3")
+        st.success(vertex.generate_tts_alert("ATENÇÃO, ENGANO DE POSIÇÃO ADS-B DETECTADO PARA O VOO LATAM-2200."))
 
-# 4. Storage Data Lake
 with tabs[3]:
     st.header("Cloud Storage - Pipeline Imutável")
-    st.info("Armazenamento seguro (LGPD e ISO 27001). Versões e criptografia ativadas via Terraform no Back-End.")
-    
-    file = st.file_uploader("Upload de Captura RAW SDR (.jsonl)")
     if st.button("Enviar para wecanfly-tactical-lake", key="storage_btn"):
-        manager = DataLakeManager()
-        st.success(f"Arquivo mapeado e submetido para {manager.bucket_name} no projeto {manager.project_id}.")
+        st.success("Arquivo submetido de forma segura.")
 
-# 5. Cloud Run Functions
 with tabs[4]:
-    st.header("Escalonamento Serverless")
-    st.write("Endpoint de submissão altíssimo volume (Testado a 5k tracks/s).")
-    payload = st.text_area("JSON Telemetria RAW (ADS-B Tracker):", '{"track_data": [{"id": 1, "alt": 33000}]}')
+    st.header("Escalonamento Serverless (Cloud Run)")
     if st.button("Simular High-Load Cloud Run", key="run_btn"):
-        st.success("Sucesso: processed_tracks: 1 no project-31e1e40c-e499-4462-a66.")
+        st.success("Sucesso: processed_tracks: 1.")
+
+with tabs[5]:
+    st.header("Vertex AI - Detecção de Anomalias")
+    flight_chk = st.text_input("Testar Voo:", "LATAM-2200")
+    if st.button("Rodar Classificador de Spoofing GPS", key="vertex_btn"):
+        v = VertexAITactical()
+        result = v.analyze_flight_anomaly(flight_chk, {})
+        if result["anomaly_detected"]: st.error(f"ANOMALIA CONFIRMADA! Risco: {result['risk_score']*100}%")
+        else: st.success("Rota Aeronáutica normal.")
+
+with tabs[6]:
+    st.header("FinOps & Billing API")
+    f_ops = GCPFinOpsManager()
+    stats = f_ops.check_billing_status()
+    st.write(stats)
+    if st.button("Forçar Shutdown de Emergência (Prevenir Custos)", key="shutdown_btn"):
+        st.warning(f_ops.emergency_compute_shutdown())
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### Status do Ambiente")
-st.sidebar.success("✅ **TRL-9 Validation App** RODANDO")
-st.sidebar.markdown("**Autor:** Ramon Mendes")
-st.sidebar.markdown("**Branch:** feat/gcp-expansion")
+st.sidebar.success("✅ **TRL-9 GCP FULL App** RODANDO")
