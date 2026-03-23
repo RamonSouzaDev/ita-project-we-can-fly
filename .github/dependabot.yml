@@ -1,0 +1,18 @@
+version: 2
+updates:
+  # Monitoramento de Vulnerabilidades em Pacotes Python (AI/ML)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    assignees:
+      - "RamonSouzaDev"
+    
+  # Monitoramento de Imagens Base do Docker
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "RamonSouzaDev"
