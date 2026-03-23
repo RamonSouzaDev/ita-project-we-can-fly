@@ -280,11 +280,60 @@ docker run ita-project-we-can-fly
 - **Pandas & NumPy** (Data Simulation)
 - **Seaborn** (Visualization)
 
+### 10. Official Cloud Native Architecture (Mermaid)
+
+```mermaid
+graph TD
+    classDef gcp fill:#e8f0fe,stroke:#1a73e8,stroke-width:2px,color:#1a73e8;
+    classDef edge fill:#fce8e6,stroke:#c5221f,stroke-width:2px,color:#c5221f;
+    classDef secure fill:#e6f4ea,stroke:#137333,stroke-width:2px,color:#137333;
+
+    SubGraph_Edge[("Hardware na Borda (Edge)")]:::edge
+    SDR[📡 Receptor SDR (1090 MHz) <br/> dump1090]:::edge --> Ingestao
+    ATC[🎙️ Rádio Frequência ATC <br/> (VHF Analógico)]:::edge --> Ingestao
+
+    subgraph GCP ["☁️ Arquitetura Google Cloud (TRL-9)"]
+        Ingestao[🚀 Cloud Run <br/> (Ingestão High-Load Serverless)]:::gcp
+        PubSub[🔀 Cloud Pub/Sub <br/> (Fila de Telemetria e Eventos)]:::gcp
+        Ingestao --> PubSub
+        Processor[⚙️ Cloud Run <br/> (Telemetry Processor Service)]:::gcp
+        PubSub --> Processor
+        Vertex[🧠 Vertex AI <br/> (Classificador de Spoofing)]:::gcp
+        Processor -->|Payload JSON| Vertex
+        Vertex -->|Risk Score / Alertas| Processor
+        SIGINT[🎙️ API Speech-to-Text <br/> & Text-to-Speech]:::gcp
+        Processor <-->|Reconhecimento ATC| SIGINT
+        Maps[🗺️ Maps API 3D <br/> (Consciência Situacional)]:::gcp
+        Memorystore[⚡ Redis Memorystore <br/> (Caching Analítico)]:::gcp
+        Processor <--> Memorystore
+        DataLake[🗄️ Cloud Storage <br/> (Data Lake Imutável)]:::gcp
+        Ingestao -->|SDR Logs RAW/LGPD| DataLake
+        BigQuery[📊 BigQuery <br/> (Forense e Analytics Tático)]:::gcp
+        Processor -->|Assinaturas Forenses SHA-256| BigQuery
+        CloudSQL[🗃️ Cloud SQL / PostgreSQL <br/> (Validação Militar FAB)]:::secure
+        SecretManager[🔐 Secret Manager <br/> (Credenciais Zero-Trust)]:::secure
+        Processor --> CloudSQL
+        SecretManager -.-> CloudSQL
+        SecretManager -.-> Processor
+        FinOps[💸 FinOps Hub & Billing APIs <br/> (Monitoramento de Quota Trial)]:::gcp
+        FinOps -.->|Emergency Shutdown Trigger| Ingestao
+        FinOps -.->|Monitoramento| Processor
+    end
+
+    Dashboard[💻 Dashboard Tático <br/> (Streamlit Local)]:::edge
+    Processor -->|WebSockets/HTTP| Dashboard
+    BigQuery -->|Queries Oficiais| Dashboard
+    Maps --> Dashboard
+```
+
 ---
 
 ## 🔗 Connect
-**Ramon Mendes**
-*Software Engineer | Aviation Security Enthusiast*
+**Eng. Ramon de Souza Mendes Oficial Federal / Pesquisador**  
+*Engenheiro de Software Sênior & Perito Técnico (MPSP ID: 9830)*  
+**CREA-SP:** 5071785098 / SP  
+**WhatsApp:** +55 (11) 96652-4351  
+**E-mail:** [dwmom@hotmail.com](mailto:dwmom@hotmail.com)  
 [LinkedIn Profile](https://www.linkedin.com/in/ramon-mendes-b44456164/)
 
 *"Innovation distinguishes between a leader and a follower."*
