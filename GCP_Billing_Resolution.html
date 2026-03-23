@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCP Billing Resolution Guide</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --primary-color: #3b82f6;
+            --accent-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95));
+            border-bottom: 2px solid var(--warning-color);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: var(--warning-color);
+            margin: 0 0 10px 0;
+        }
+
+        .card {
+            background: rgba(30,41,59,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .step-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-action {
+            background: rgba(59, 130, 246, 0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #93c5fd;
+            font-weight: bold;
+        }
+
+        .alert-box {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid var(--danger-color);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Desbloqueando o Faturamento</h1>
+        <p style="color: var(--text-secondary);">Instruções exatas do que clicar nesta sua tela de Faturamento para destravar a API.</p>
+    </header>
+
+    <div class="container">
+
+        <div class="alert-box">
+            <h3 style="margin-top:0; color: #fca5a5;">O que aconteceu?</h3>
+            <p>A imagem que você mandou na tela está perfeita! Mas lembra que antes apareceu a mensagem <i>"A conta de faturamento está fechada"</i>? O Google só destranca essa conta ("Abre" ela) quando um método de pagamento oficial é validado pelo sistema robótico (mesmo que você não vá ser cobrado por causa da Cota Grátis).</p>
+        </div>
+
+        <div class="card">
+            <div class="step-title">🛠️ Ação 1: Validar Formas de Pagamento</div>
+            <p>1. Olhe para esse menu menu lateral esquerdo da sua tela (onde está escrito "Visão geral", "Relatórios", etc.).</p>
+            <p>2. Desça o menu e clique em <span class="highlight-action">Formas de Pagamento</span>.</p>
+            <p>3. Verifique se o seu cartão de crédito está adicionado e validado. Se não estiver, clique em <b>Adicionar forma de pagamento</b>. (O Google não cobra o acesso do nosso script e do seu plano Developer, é só para identificação ID).</p>
+        </div>
+
+        <div class="card">
+            <div class="step-title">🔄 Ação 2: Reabrir a Conta (Se estiver Fechada)</div>
+            <p>1. No mesmo menu esquerdo ou no topo central da tela principal, clique em engrenagem <span class="highlight-action">⚙️ Gerenciar conta de faturamento</span> (Account Management).</p>
+            <p>2. Se o status ali estiver "Fechado" ou "Desativado", procure um botão para <b>Reativar</b> ou <b>Reabrir conta de faturamento</b>.</p>
+        </div>
+
+        <div class="card">
+            <div class="step-title">🔗 Ação 3: Vincular ao Projeto We Can Fly</div>
+            <p>Assim que a conta constar como Aberta e o cartão validado:</p>
+            <p>1. Vá no menu esquerdo onde diz <span class="highlight-action">Gerenciamento da Conta</span>.</p>
+            <p>2. Vá na aba "Projetos Vinculados".</p>
+            <p>3. Clique no botão de Vincular ou gerenciar projetos e garanta que o projeto <b>ita-wecanfly-v2-dev</b> esteja na lista. Se ele estiver ali e a conta estiver aberta, acabou!</p>
+        </div>
+
+        <div class="card" style="border-color: rgba(16, 185, 129, 0.4);">
+            <div class="step-title" style="color: #10b981;">✅ Teste Final</div>
+            <p>Assim que cumprir os passos acima, vá no seu terminal do Windows e dispare pelo nosso script pela última vez: <br><code>python src\vertex_adk_agent.py</code></p>
+            <p>Se as luzes estiverem verdes no Google, a Inteligência vai responder!</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

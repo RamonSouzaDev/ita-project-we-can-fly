@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCP Premium Plan Integration | We Can Fly V2.0</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --primary-color: #3b82f6;
+            --accent-color: #10b981;
+            --warning-color: #f59e0b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --code-bg: #0b1120;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95));
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(30,41,59,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .step-title {
+            color: #60a5fa;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: #a5b4fc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .note {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--warning-color);
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            color: #fcd34d;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Cloud Migration: Google Developer Premium</h1>
+        <p style="color: var(--text-secondary);">Guia Estratégico para ativar a infraestrutura do <b>Google Gemini Enterprise (Teste de 30 Dias)</b> e conectar a branch <code>feature/v2-predictive-autonomous-agents</code> na Nuvem sem custos operacionais.</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card" style="border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.05);">
+            <div class="step-title" style="color: #10b981;">✅ Validação Tática do Seu Plano</div>
+            <p><b>Sim, 100% possível e altamente recomendado!</b> O plano <i>Google Developer Program Premium</i> com o teste de 30 dias do <i>Gemini Enterprise</i> é o cenário perfeito ("The Golden Path") para pegarmos o script ADK Offline que fizemos (onde "zombamos" a Inteligência Artificial) e integrarmos à inteligência neural real (Gemini 3 e Vertex AI).</p>
+            <p>Esse é o caminho para o qual o TRL-9 da FAB e a auditoria FINEP irão aplaudir de pé: Um ambiente de IA Empresarial, gerenciado e seguro, utilizando recursos nativos da nuvem providos pro-bono para inovação tecnológica.</p>
+        </div>
+
+        <h2>O Passo a Passo de Execução (Blueprint)</h2>
+
+        <div class="card">
+            <div class="step-title">🛠️ Passo 1: Resgate do Benefício Enterprise</div>
+            <p>1. Acesse o seu Google Cloud Console usando a sua conta Google com o plano ativo do Developer Program e do Google One.</p>
+            <p>2. Navegue até a página de faturamento (Billing) e valide que o teste de <b>30 Dias do Gemini Enterprise</b> e/ou os $300 dólares em créditos estão ativos na sua "Billing Account".</p>
+            <p>3. Crie um novo projeto no Google Cloud chamado (por exemplo): <code>we-can-fly-ai-v2</code> e anote o <b>Project ID</b> gerado.</p>
+        </div>
+
+        <div class="card">
+            <div class="step-title">🌐 Passo 2: Habilitar as APIs da Vertex AI</div>
+            <p>Você precisa ativar os "Cérebros" da Google para o nosso script ADK funcionar na nuvem.</p>
+            <p>1. No menu do Google Cloud, procure por <b>APIs & Services</b> > <b>Library</b>.</p>
+            <p>2. Pesquise e ative as seguintes APIs principais no seu novo projeto:</p>
+            <ul>
+                <li><i>Vertex AI API</i> (A mais importante, motor dos Agentes)</li>
+                <li><i>Cloud AI Companion API</i></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="step-title">💻 Passo 3: Conectar a Máquina Local na Nuvem Real</div>
+            <p>Ao invés de programar via Cloud Shell do site, nós vamos ligar o seu VSCode/Terminal do Windows (que já está na branch correta) diretamente ao seu Google Cloud Enterprise. Abra o seu terminal local (PowerShell/CMD) na pasta do projeto e faça o seguinte:</p>
+            <p>1. Instale o SDK do Google Cloud no Windows (se não tiver) e digite:</p>
+            <pre>gcloud auth login
+gcloud config set project [SEU-PROJECT-ID]</pre>
+            <p>2. Agora os seus scripts ADK python podem enviar dados diretamente para a Nuvem real de forma transparente e em total segurança.</p>
+        </div>
+
+        <div class="card">
+            <div class="step-title">🔗 Passo 4: Transição do ADK Local para o ADK Real</div>
+            <p>Lá no nosso arquivo <code>src/adk_defender_node.py</code>, nós usamos uma IA "Simulada" (Mock). Chegou a hora de habilitar as bibliotecas reais do pacote <b>google-adk</b> e apontar elas para o Gemini 3 (fornecido pelo seu Trial de 30 dias do Enterprise).</p>
+            <p>1. Instale as bibliotecas reais de IA no seu Windows:</p>
+            <pre>pip install google-adk google-cloud-aiplatform</pre>
+            <p>2. Vamos definir as credenciais do seu projeto diretamente no código (.env):</p>
+            <pre>GOOGLE_GENAI_USE_VERTEXAI=TRUE
+GOOGLE_CLOUD_PROJECT=[SEU_PROJECT_ID]
+GOOGLE_CLOUD_LOCATION=us-central1
+MODEL=gemini-1.5-pro-preview-0409  # Ou a versão Enterprise disponível da Vertex AI</pre>
+            <div class="note">Nós vamos então remover o `MockADKAgent` e chamar o verdadeiro `from google.adk import Agent`. O Agente fará *inference* na Google Cloud real pelo trial de 30 dias em total isolamento e poder assombroso de processamento.</div>
+        </div>
+
+        <div class="card">
+            <div class="step-title">🔐 Passo 5: Teste Real da Arquitetura V2.0</div>
+            <p>Tudo o que restar é executar o script aprimorado no seu computador.</p>
+            <p>O seu Agente vai bater na porta da **Vertex AI (Gemini Enterprise)**. O Gemini vai ler a telemetria do ADS-B, decidir se é um perigo real ou não baseado nas regras de Aviação, e se for, ele vai devolver um comando direto para o arquivo Python exigindo o Acionamento da Ferramenta de Bloqueio (Tool Calling).</p>
+            <p><b>Ao fim de 30 dias</b>, caso esgote o Trial, basta paralisar a Cloud de testes e apresentar à equipe da aeronáutica, sem onerar sua conta pessoal. A TRL-9 vai se consagrar na nuvem de verdade.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

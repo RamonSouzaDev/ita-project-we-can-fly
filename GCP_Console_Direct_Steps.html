@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCP Console Direct Steps</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --primary-color: #3b82f6;
+            --accent-color: #10b981;
+            --warning-color: #fbbf24;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --code-bg: #0b1120;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95));
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+        }
+
+        .card {
+            background: rgba(30,41,59,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .step-title {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+            padding-bottom: 10px;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: #a5b4fc;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: #fca5a5;
+            font-weight: bold;
+        }
+
+        .success-box {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>GCP Console Setup: We Can Fly V2</h1>
+        <p style="color: var(--text-secondary);">Guia super facilitado com as 4 etapas cruciais para conectar a nuvem ao seu terminal.</p>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="step-number">1</div>
+            <div class="step-title">🌐 Criar o Novo Projeto no Site</div>
+            <p>1. No site do Google Cloud Console, vá no canto superior esquerdo e clique no botão de selecionar um projeto.</p>
+            <p>2. Clique em <b>Novo Projeto (New Project)</b>.</p>
+            <p>3. Sugestão de ID de Projeto para você usar:</p>
+            <pre>ita-wecanfly-v2-dev</pre>
+            <p><i>Atenção: Mantenha este ID anotado. Ele é intransferível e único.</i></p>
+        </div>
+
+        <div class="card">
+            <div class="step-number">2</div>
+            <div class="step-title">💳 Ativar o Faturamento (Sem custo)</div>
+            <p>1. Assim que o projeto <code>ita-wecanfly-v2-dev</code> for criado e você entrar nele, procure o menu lateral esquerdo.</p>
+            <p>2. Clique em <b>Faturamento (Billing)</b>.</p>
+            <p>3. Clique em <b>Vincular conta de faturamento</b> e associe a conta que possui os $300 dólares (ou o Trial de 30 dias do Gemini Enterprise).<br>Isso garante que o projeto saia da restrição de "sandbox".</p>
+        </div>
+
+        <div class="card">
+            <div class="step-number">3</div>
+            <div class="step-title">🧠 Ativar as APIs de Inteligência Artificial</div>
+            <p>1. Na barra de pesquisa superior (Search), digite <b>Vertex AI</b>.</p>
+            <p>2. A tela vai pedir para <b>Ativar TODAS as APIs recomendadas</b> (Enable all recommended APIs).</p>
+            <p>3. Clique no botão azul <b>Ativar (Enable)</b>. Aguarde uns segundos até carregar o painel Studio.</p>
+        </div>
+
+        <div class="card">
+            <div class="step-number">4</div>
+            <div class="step-title">⏬ Instalador do Google Cloud SDK</div>
+            <p>O seu Windows retornou o erro de que o "gcloud não é reconhecido". Para resolvermos isso trabalhando juntos, eu acabei de pedir ao seu terminal para baixar e abrir o instalador oficial!</p>
+            <p>1. Volte para a tela do seu computador e vá apertando <b>Avançar (Next)</b> e <b>Instalar (Install)</b> no processo de instalação que abriu.</p>
+            <p>2. Assim que concluir, para que o Windows consiga enxergar a ferramenta recém-instalada, você deve obrigatoriamente <span class="highlight">FECHAR SEU TERMINAL</span> antigo.</p>
+            <p>3. Feito isso, abra uma janela de terminal <b>nova</b> na sua pasta atual.</p>
+        </div>
+
+        <div class="card">
+            <div class="step-number">5</div>
+            <div class="step-title">💻 Sincronizar o seu Windows com a Nuvem</div>
+            <p>No terminal <b>NOVO</b>, agora você pode disparar os comandos sem medo do erro antigo:</p>
+            <p>1. Faça o Login com o seu E-mail:</p>
+            <pre>gcloud auth application-default login</pre>
+            <p>2. Aponte o Windows para o nosso ID de projeto recém criado:</p>
+            <pre>gcloud config set project ita-wecanfly-v2-dev</pre>
+
+            <div class="success-box">
+                ✔️ <b>Pronto!</b> Assim que fizer isso, nossa V2.0 e qualquer inteligência ADK já podem rodar no seu computador sugando de graça o processamento poderoso do Vertex AI do Google!
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

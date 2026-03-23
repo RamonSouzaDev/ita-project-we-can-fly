@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCP We Can Fly V2 Implementation Steps</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --primary-color: #3b82f6;
+            --accent-color: #10b981;
+            --warning-color: #fbbf24;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --code-bg: #0b1120;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95));
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+        }
+
+        .card {
+            background: rgba(30,41,59,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .step-title {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+            padding-bottom: 10px;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: #c7d2fe;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.05rem;
+        }
+
+        .success-box {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-top: 20px;
+            color: #6ee7b7;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Conexão Windows-Nuvem: TRL-9 Oficial</h1>
+        <p style="color: var(--text-secondary);">Guia final de integração para o projeto <b>ita-wecanfly-v2-dev</b>.</p>
+    </header>
+
+    <div class="container">
+
+        <div class="card" style="border-color: rgba(59, 130, 246, 0.4);">
+            <div class="step-number" style="background: #3b82f6;">1</div>
+            <div class="step-title">🧠 Ativar o "Cérebro" (Vertex AI) no Site</div>
+            <p>1. Volte para a tela do site do Google Cloud Console.</p>
+            <p>2. Na barra de pesquisa lá no topo, digite exatamente: <b>Vertex AI API</b> e pressione Enter.</p>
+            <p>3. Clique no botão azul gigante escrito <b>Ativar (Enable)</b>. Demora uns 30 segundos.</p>
+        </div>
+
+        <div class="card" style="border-color: rgba(16, 185, 129, 0.4);">
+            <div class="step-number" style="background: #10b981;">2</div>
+            <div class="step-title">💻 Autenticar seu Computador</div>
+            <p>1. Assim que a instalação daquele SDK (do instalador verde do Google) finalizar, abra uma janela <b>NOVA</b> do seu terminal Windows (PowerShell/CMD) aí no seu computador.</p>
+            <p>2. Digite este comando e dê Enter para logar pela primeira vez com o e-mail forte do Google One:</p>
+            <pre>gcloud auth application-default login</pre>
+            <p><i>Vai abrir uma tela no seu navegador pedindo permissão de acesso. Pode confirmar tudo!</i></p>
+        </div>
+
+        <div class="card" style="border-color: rgba(245, 158, 11, 0.4);">
+            <div class="step-number" style="background: #f59e0b;">3</div>
+            <div class="step-title">🔗 Ligar a Máquina ao Projeto ita-wecanfly-v2-dev</div>
+            <p>1. De volta ao mesmo terminal do Windows, nós vamos dizer para a sua máquina que tudo o que criarmos tem que ir direto para o seu painel. Rode isto:</p>
+            <pre>gcloud config set project ita-wecanfly-v2-dev</pre>
+        </div>
+
+        <div class="card" style="border-color: rgba(16, 185, 129, 0.3);">
+            <div class="step-title">🛠️ Fase Seguinte: Reescrever a IA e Rodar</div>
+            <div class="success-box">
+                ✔️ <b>A Base Está Completa!</b> 
+                Assim que você executar os passos acima e colar os prints verdes de sucesso do "gcloud" de volta na conversa, eu vou abrir aquele script local offline `adk_defender_node.py` e eu mesmo vou atualizar o código para apontar direto para a Vertex AI do seu projeto com as bibliotecas oficiais. 
+            </div>
+            <p>Ao realizar essas 3 etapas acima, seu computador está legalmente autorizado a usar a inteligência do Gemini de dentro da nuvem corporativa! Me dê os comandos quando terminar.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

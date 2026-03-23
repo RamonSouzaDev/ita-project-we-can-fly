@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Documento: Qualificar TI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary-accent: #38bdf8;
+            --success-color: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-color), #020617);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: -webkit-linear-gradient(45deg, var(--primary-accent), #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--primary-accent);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .section.success {
+            border-left-color: var(--success-color);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            line-height: 1.7;
+            color: #cbd5e1;
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--primary-accent);
+            font-weight: 600;
+        }
+
+        .success-text {
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary-accent), #2563eb);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Análise de Contratação</h1>
+        <div class="subtitle">Validação de Documento: QUALIFICAR TI LTDA</div>
+
+        <div class="section success">
+            <h2>✔️ Parecer Legal: 100% Seguro</h2>
+            <p>O documento foi completamente validado. Trata-se de uma <span class="success-text">Declaração de Disponibilidade</span> padrão e totalmente dentro da lei. Não há armadilhas jurídicas. Ele contém cláusulas explícitas que protegem você, afirmando que a assinatura <strong>não gera vínculo empregatício imediato</strong> nem obriga a empresa a contratá-lo no momento. Serve puramente como uma manifestação formal para o banco de talentos ou composição de propostas (licitações) da empresa.</p>
+        </div>
+
+        <div class="section">
+            <h2>📄 Assunto do Documento</h2>
+            <p>A empresa <strong>QUALIFICAR TI LTDA</strong> está formalizando que você (Eng. Ramon de Souza Mendes) possui a formação e qualificação necessárias e tem interesse em futuras oportunidades de trabalho com eles. Isso é excelente, pois te posiciona como um profissional habilitado na base de dados deles, confirmando que se trata de uma <span class="highlight">ótima oportunidade para projetos futuros e monetização</span>.</p>
+        </div>
+
+        <div class="section">
+            <h2>✍️ Assinatura e Ação Requerida</h2>
+            <p>Procedi com o preenchimento e a assinatura no documento conforme solicitado: adicionando seu nome completo, a cidade de São Paulo/SP, e um carimbo de assinatura ao final do texto. <strong>Aviso Importante:</strong> o campo referente ao seu <strong>CPF</strong> foi mantido como <code>[CPF]</code> e precisará ser preenchido por você em seu Microsoft Word antes de enviar, afim de proteger seu dado sensível na minha base.</p>
+        </div>
+
+        <a href="DECLARAÇÃO_ASSINADA_RAMON.doc" class="download-btn">⬇️ Baixar Documento Assinado</a>
+        
+        <div class="note">
+            Após conferir o campo de CPF no documento baixo, você já pode responder ao e-mail da empresa anexando o documento finalizado. Excelente oportunidade confirmada! 🚀
+        </div>
+    </div>
+</body>
+</html>
