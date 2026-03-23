@@ -1,0 +1,12 @@
+.git
+.gitignore
+*.pdf
+*.doc
+*.png
+*.jpg
+*.txt
+*.jsonl
+*.log
+.streamlit/
+tests/
+*.html
