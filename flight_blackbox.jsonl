@@ -23,3 +23,25 @@
 {"timestamp": "2026-03-21T19:45:08.068881", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=84 | Alt Delta: 74.55"}
 {"timestamp": "2026-03-21T19:45:08.875021", "level": "CRITICAL", "module": "avionics", "function": "stream_bus_traffic", "message": "BUS ALERT: Malicious Injection Detected on Cycle 92"}
 {"timestamp": "2026-03-21T19:45:09.278436", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=96 | Alt Delta: 1371.36"}
+{"timestamp": "2026-03-23T11:36:40.452790", "level": "INFO", "module": "run_aero_tests", "function": "run_engineering_simulation", "message": "Initializing CREA-SP Certified Simulation..."}
+{"timestamp": "2026-03-23T11:36:40.453797", "level": "INFO", "module": "adsb", "function": "__init__", "message": "ADS-B Sensor initialized: RADAR-SBGR-01"}
+{"timestamp": "2026-03-23T11:36:40.453797", "level": "INFO", "module": "avionics", "function": "__init__", "message": "Avionics Bus Initialized: ARINC-429-BUS-A"}
+{"timestamp": "2026-03-23T11:36:40.453797", "level": "INFO", "module": "adsb", "function": "stream_flight_data", "message": "Starting telemetry stream. Steps: 100, Anomaly Prob: 0.1"}
+{"timestamp": "2026-03-23T11:36:40.464931", "level": "INFO", "module": "avionics", "function": "stream_bus_traffic", "message": "Starting Bus Traffic Stream on ARINC-429-BUS-A"}
+{"timestamp": "2026-03-23T11:36:40.968099", "level": "CRITICAL", "module": "avionics", "function": "stream_bus_traffic", "message": "BUS ALERT: Malicious Injection Detected on Cycle 5"}
+{"timestamp": "2026-03-23T11:36:41.169946", "level": "CRITICAL", "module": "avionics", "function": "stream_bus_traffic", "message": "BUS ALERT: Malicious Injection Detected on Cycle 7"}
+{"timestamp": "2026-03-23T11:36:44.088255", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=36 | Alt Delta: 2957.93"}
+{"timestamp": "2026-03-23T11:36:44.289606", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=38 | Alt Delta: 114.26"}
+{"timestamp": "2026-03-23T11:36:44.390485", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=39 | Alt Delta: 803.25"}
+{"timestamp": "2026-03-23T11:36:44.490994", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=40 | Alt Delta: -1848.18"}
+{"timestamp": "2026-03-23T11:36:44.591721", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=41 | Alt Delta: 242.79"}
+{"timestamp": "2026-03-23T11:36:45.599549", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=51 | Alt Delta: -1102.45"}
+{"timestamp": "2026-03-23T11:36:46.102419", "level": "CRITICAL", "module": "avionics", "function": "stream_bus_traffic", "message": "BUS ALERT: Malicious Injection Detected on Cycle 56"}
+{"timestamp": "2026-03-23T11:36:46.405269", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=59 | Alt Delta: -1195.97"}
+{"timestamp": "2026-03-23T11:36:46.505965", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=60 | Alt Delta: 166.75"}
+{"timestamp": "2026-03-23T11:36:46.908668", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=64 | Alt Delta: 1194.15"}
+{"timestamp": "2026-03-23T11:36:46.908668", "level": "CRITICAL", "module": "avionics", "function": "stream_bus_traffic", "message": "BUS ALERT: Malicious Injection Detected on Cycle 64"}
+{"timestamp": "2026-03-23T11:36:47.311303", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=68 | Alt Delta: 158.21"}
+{"timestamp": "2026-03-23T11:36:48.218095", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=77 | Alt Delta: 3657.73"}
+{"timestamp": "2026-03-23T11:36:49.525123", "level": "CRITICAL", "module": "avionics", "function": "stream_bus_traffic", "message": "BUS ALERT: Malicious Injection Detected on Cycle 90"}
+{"timestamp": "2026-03-23T11:36:50.128773", "level": "WARNING", "module": "adsb", "function": "stream_flight_data", "message": "Injector: Generating SPOOFED packet at step=96 | Alt Delta: 2275.81"}
