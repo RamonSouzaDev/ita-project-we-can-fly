@@ -158,6 +158,10 @@ The technical merit of this project's architecture and AI stack is aligned with 
 **Framework**: **Python Serverless / ISO-27001 Forensic Chain / Google Cloud Run**
 **Functionality**: O **Motor Web de Inteligência Artificial** para a defesa do espaço aéreo. Hospedado publicamente no Google Cloud Platform configurado para zero downtime e zero-cost em espera (request-based). O projeto processa JSONs de SDR da borda diretamente para a Vertex AI TRL-9 em latências sub-200ms. O Cloud Build atua como pipeline CI/CD via GitHub.
 
+### 5. Native Vertex AI SDK & ML Edge Fallback (`src/vertex_cloud_agent_TRL9.py` & `src/terminal_agent_TRL9.py`)
+**Framework**: **Google Cloud AI Platform (Python SDK) / Local ML Fallback**
+**Functionality**: Implements programmatic Data Science access to the Gemini 1.5 Pro inference engine directly from the terminal, bypassing Web UI instabilities. Includes a mathematical Edge Fallback module that executes local threat classification and SHA-256 forensic hashing if cloud connectivity is lost, ensuring unbroken TRL-9 audit trails for the Brazilian Air Force (FAB).
+
 
 ---
 
