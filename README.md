@@ -218,7 +218,7 @@ python src/cloud_run_webhook_test.py
 
 ### Official Cloud Native Architecture (Mermaid)
 
-![AEROSPACE DEFENSE SYSTEM - TRL-9 CRITICAL INFRASTRUCTURE](https://raw.githubusercontent.com/Start-Ramon/cybersecurity-ai-study/main/docs/architecture_trl9.jpg)
+![AEROSPACE DEFENSE SYSTEM - TRL-9 CRITICAL INFRASTRUCTURE](https://raw.githubusercontent.com/RamonSouzaDev/ita-project-we-can-fly/main/docs/architecture_trl9.jpg)
 
 > *Accessibility Note: The Mermaid diagram was replaced by this officially validated image (Forensic Audit Trail) to improve GitHub rendering and meet the clarity standards of the project.*
 
