@@ -218,37 +218,9 @@ python src/cloud_run_webhook_test.py
 
 ### Official Cloud Native Architecture (Mermaid)
 
-```mermaid
-graph TD
-    classDef gcp fill:#e8f0fe,stroke:#1a73e8,stroke-width:2px,color:#1a73e8;
-    classDef edge fill:#fce8e6,stroke:#c5221f,stroke-width:2px,color:#c5221f;
-    classDef secure fill:#e6f4ea,stroke:#137333,stroke-width:2px,color:#137333;
+![AEROSPACE DEFENSE SYSTEM - TRL-9 CRITICAL INFRASTRUCTURE](https://raw.githubusercontent.com/Start-Ramon/cybersecurity-ai-study/main/docs/architecture_trl9.jpg)
 
-    SubGraph_Edge[("Hardware na Borda (Edge)")]:::edge
-    SDR[📡 Receptor SDR (1090 MHz) <br/> dump1090]:::edge --> Ingestao
-    ATC[🎙️ Rádio Frequência ATC <br/> (VHF Analógico)]:::edge --> Ingestao
-
-    subgraph GCP ["☁️ Arquitetura Google Cloud (TRL-9)"]
-        Ingestao[🚀 Cloud Run <br/> (Ingestão High-Load Serverless)]:::gcp
-        PubSub[🔀 Cloud Pub/Sub <br/> (Fila de Telemetria e Eventos)]:::gcp
-        Ingestao --> PubSub
-        Processor[⚙️ Cloud Run <br/> (Telemetry Processor Service)]:::gcp
-        PubSub --> Processor
-        Vertex[🧠 Vertex AI <br/> (Classificador de Spoofing)]:::gcp
-        Processor -->|Payload JSON| Vertex
-        Vertex -->|Risk Score / Alertas| Processor
-        SIGINT[🎙️ API Speech-to-Text <br/> & Text-to-Speech]:::gcp
-        Processor <-->|Reconhecimento ATC| SIGINT
-        Maps[🗺️ Maps API 3D <br/> (Consciência Situacional)]:::gcp
-        DataLake[🗄️ Cloud Storage <br/> (Data Lake Imutável)]:::gcp
-        Ingestao -->|SDR Logs RAW/LGPD| DataLake
-        CloudSQL[🗃️ Cloud SQL / PostgreSQL <br/> (Validação Militar FAB)]:::secure
-        Processor --> CloudSQL
-    end
-
-    Dashboard[💻 Dashboard Tático <br/> (Streamlit Local)]:::edge
-    Processor -->|WebSockets/HTTP| Dashboard
-```
+> *Accessibility Note: The Mermaid diagram was replaced by this officially validated image (Forensic Audit Trail) to improve GitHub rendering and meet the clarity standards of the project.*
 
 ---
 
