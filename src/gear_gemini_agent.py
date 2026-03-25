@@ -1,18 +1,17 @@
 import os
 try:
-    import google.generativeai as genai
+    from google import genai
     HAS_GENAI = True
 except ImportError:
     HAS_GENAI = False
     # Mocking for local simulation where library is missing
     class genai:
-        @staticmethod
-        def configure(api_key=None): pass
-        class GenerativeModel:
-            def __init__(self, name): self.name = name
-            def generate_content(self, prompt):
+        def Client(self, vertexai=True): return self
+        class models:
+            @staticmethod
+            def generate_content(model, contents, config=None):
                 class Response:
-                    def __init__(self): self.text = "[MOCKED GEMINI RESPONSE]: Analysis of anomaly shows high physical incongruity. Signature matches typical ADS-B 'Ghosting' injection pattern. Recommended action: Filter signal and initiate forensic log seal."
+                    def __init__(self): self.text = "[MOCKED GEMINI V2 RESPONSE]: Analysis shows high physical incongruity. Signature matches typical ADS-B 'Ghosting' injection via unauthorized SDR. Recommendation: Sealed Forensic Audit."
                 return Response()
 
 from typing import Dict, Any, List
@@ -30,42 +29,38 @@ class GeminiReasoningAgent(GEARBaseAgent):
         super().__init__(agent_id)
         api_key = os.getenv("GOOGLE_API_KEY")
         
-        # Initializing either the real model or the mock
-        genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-1.5-pro')
+        # Initializing for Vertex AI or Direct API
+        try:
+            self.client = genai.Client(api_key=api_key)
+            self.model_name = 'gemini-1.5-pro'
+        except Exception:
+            # Fallback for mock or errors
+            self.client = genai.Client()
+            self.model_name = 'mock-v2'
         
         if not HAS_GENAI or not api_key:
             self.log("Running in MOCKED Gemini mode (Check GOOGLE_API_KEY).", "WARN")
-        self.active = True # Always active for simulation
+        self.active = True
 
     def process(self, anomaly_data: Dict[str, Any]) -> str:
         """
         Uses Gemini to reason about a specific anomaly.
         """
         if not self.active:
-            return "Reasoning unavailable (No API Key)"
+            return "Reasoning unavailable"
 
-        prompt = f"""
-        Analyze the following aviation telemetry anomaly for potential cybersecurity threats (ADS-B Spoofing or ARINC Injection).
-        
-        DATA:
-        {anomaly_data}
-        
-        TASK:
-        1. Identify if this matches known spoofing patterns.
-        2. Explain the physical possibility/impossibility of the jump.
-        3. Provide a 'Confidence Score' (0-100).
-        4. Suggest a mitigation action.
-        
-        Format your response as a concise forensic summary.
-        """
+        prompt = f"Analyze aviation telemetry anomaly: {anomaly_data}"
         
         try:
-            response = self.model.generate_content(prompt)
+            # Using the new Client API (google-genai)
+            response = self.client.models.generate_content(
+                model=self.model_name,
+                contents=prompt
+            )
             return response.text
         except Exception as e:
             self.log(f"Gemini processing error: {e}", "CRITICAL")
-            return f"Error in reasoning: {str(e)}"
+            return f"Error: {str(e)}"
 
     def audit_flight_block(self, telemetry_block: List[Dict[str, Any]]):
         """Batch auditing for Big Data sets."""
