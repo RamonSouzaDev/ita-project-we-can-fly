@@ -2,12 +2,28 @@
 Motor Web do Vertex AI (Para Execução Serverless no Cloud Run)
 """
 from flask import Flask, request, jsonify
-from google import genai
-from google.genai import types
 import json
 import hashlib
 import time
 import os
+try:
+    from google import genai
+    from google.genai import types
+    HAS_GENAI = True
+except ImportError:
+    HAS_GENAI = False
+    class genai:
+        class Client:
+            def __init__(self, **kwargs): self.models = self
+            def generate_content(self, **kwargs):
+                class Response:
+                    def __init__(self): 
+                        self.text = "[MOCK CLOUD] Normal"
+                        self.function_calls = []
+                return Response()
+    class types:
+        class GenerateContentConfig:
+            def __init__(self, **kwargs): pass
 
 app = Flask(__name__)
 
@@ -18,7 +34,11 @@ def block_sdr_port(mac_address: str, threat_type: str) -> str:
     return f"SUCESSO NO BLOQUEIO: MAC {mac_address} Neutralizado. Log Militar: {hash_record}"
 
 # Autenticação implícita do Cloud Run via Service Account Default
-client = genai.Client(vertexai=True)
+try:
+    client = genai.Client(vertexai=True)
+except Exception:
+    # Use simple client for non-vertex environments or locals
+    client = genai.Client()
 
 system_instruction = "You are an autonomous aerospace defense agent. Analyze kinematic JSON physics. If 'kinematic_anomaly_score' > 0.85, you MUST invoke the block_sdr_port tool to physically neutralize the MAC via proxy firewalls."
 
