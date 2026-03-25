@@ -9,3 +9,6 @@ streamlit
 google-cloud-bigquery
 google-api-core
 tensorflow
+google-generative-ai
+pydantic
+python-dotenv

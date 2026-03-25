@@ -14,6 +14,15 @@
 - **Scope:** Development of autonomous airspace monitoring using AI and SDR (Software Defined Radio) to strengthen the Brazilian Airspace Control System (SISCEAB).
 - **Strategic Partner:** **ITA (Instituto Tecnológico de Aeronáutica)** - Formal consulting and validation partnership included.
 
+## ⚙️ GEAR Ecosystem Integration (V.25-03-26)
+This project is now integrated with the **GEAR Ecosystem**, implementing advanced agentic defense patterns:
+
+*   **🛡️ Cyber-Perito ADK:** Autonomous agents monitor ADS-B protocol deviations and generate sealed forensic logs.
+*   **🧠 Gemini 1.5 Pro:** Mass processing of flight datasets for low-frequency anomaly detection and "Red Teaming" simulation.
+*   **⚡ Agentic Design Patterns:** Micro-agent architecture for collaborative threat detection and instant protection.
+*   **☁️ Security Lab (GCP):** Stress-testing infrastructure via Google Cloud Security credits.
+
+
 ## 🎥 Official Project Pitch (FINEP Compliance)
 **Required for Habilitation Phase:**
 - **Video Link:** [Official Video Pitch (YouTube)](https://youtu.be/4_bMn6LLMrs)
@@ -161,6 +170,10 @@ The technical merit of this project's architecture and AI stack is aligned with 
 ### 5. Native Vertex AI SDK & ML Edge Fallback (`src/vertex_cloud_agent_TRL9.py` & `src/terminal_agent_TRL9.py`)
 **Framework**: **Google Cloud AI Platform (Python SDK) / Local ML Fallback**
 **Functionality**: Implements programmatic Data Science access to the Gemini 1.5 Pro inference engine directly from the terminal, bypassing Web UI instabilities. Includes a mathematical Edge Fallback module that executes local threat classification and SHA-256 forensic hashing if cloud connectivity is lost, ensuring unbroken TRL-9 audit trails for the Brazilian Air Force (FAB).
+
+### 6. GEAR Cyber-Perito ADK (`src/adsb_cyber_perito_agent.py`)
+- **Framework**: **GEAR ADK / Gemini 1.5 Pro / MPSP Forensic Seal**
+- **Functionality**: Implements the autonomous "Cyber-Perito" logic. It cross-references ML detection results with Gemini 1.5 Pro reasoning to provide a legal-grade forensic explanation of aerospace threats, automatically sealing results for the Public Ministry (MPSP).
 
 
 ---
