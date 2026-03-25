@@ -1,5 +1,20 @@
 import os
-import google.generativeai as genai
+try:
+    import google.generativeai as genai
+    HAS_GENAI = True
+except ImportError:
+    HAS_GENAI = False
+    # Mocking for local simulation where library is missing
+    class genai:
+        @staticmethod
+        def configure(api_key=None): pass
+        class GenerativeModel:
+            def __init__(self, name): self.name = name
+            def generate_content(self, prompt):
+                class Response:
+                    def __init__(self): self.text = "[MOCKED GEMINI RESPONSE]: Analysis of anomaly shows high physical incongruity. Signature matches typical ADS-B 'Ghosting' injection pattern. Recommended action: Filter signal and initiate forensic log seal."
+                return Response()
+
 from typing import Dict, Any, List
 from .gear_adk_base import GEARBaseAgent
 from dotenv import load_dotenv
@@ -14,13 +29,14 @@ class GeminiReasoningAgent(GEARBaseAgent):
     def __init__(self, agent_id: str = "GEMINI_REASONER_AI"):
         super().__init__(agent_id)
         api_key = os.getenv("GOOGLE_API_KEY")
-        if api_key:
-            genai.configure(api_key=api_key)
-            self.model = genai.GenerativeModel('gemini-1.5-pro')
-            self.active = True
-        else:
-            self.log("GOOGLE_API_KEY not found. Gemini reasoning disabled.", "ERROR")
-            self.active = False
+        
+        # Initializing either the real model or the mock
+        genai.configure(api_key=api_key)
+        self.model = genai.GenerativeModel('gemini-1.5-pro')
+        
+        if not HAS_GENAI or not api_key:
+            self.log("Running in MOCKED Gemini mode (Check GOOGLE_API_KEY).", "WARN")
+        self.active = True # Always active for simulation
 
     def process(self, anomaly_data: Dict[str, Any]) -> str:
         """
