@@ -36,8 +36,8 @@ class GEARBaseAgent(abc.ABC):
         """Main processing logic for the agent."""
         pass
 
-    def send_to_mpsp(self, forensic_data: Dict[str, Any]):
-        """Simulates sending a sealed log to MPSP."""
+    def seal_forensic_evidence(self, forensic_data: Dict[str, Any]):
+        """Simulates sealing a forensic hash for the Public Ministry (MPSP)."""
         self.log(f"Sealing forensic hash for MPSP: {hash(str(forensic_data))}", "FORENSIC")
-        # In a real scenario, this would call KMS and the MPSP API
+        # In a real scenario, this would call KMS and the MPSP Secure API
         return True
