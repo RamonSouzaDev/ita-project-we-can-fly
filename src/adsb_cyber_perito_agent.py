@@ -6,21 +6,23 @@ from src.gear_gemini_agent import GeminiReasoningAgent
 from src.gear_mitigation_agent import GEARMitigationAgent
 from src.gear_blockchain_agent import GEARBlockchainAgent
 from src.gear_arinc429_agent import GEARArinc429Agent
+from src.gear_command_node import GEARCommandNode
 
 class ADSBCyberPeritoAgent(GEARBaseAgent):
     """
-    Orchestrates the ADS-B cybersecurity monitoring ecosystem (GEAR SWARM V2.5). 
-    Combines ML detection, ARINC 429 HIL consistency, AI reasoning, and blockchain anchoring.
+    Orchestrates the ADS-B cybersecurity monitoring ecosystem (GEAR SWARM V3.0). 
+    Combines ML detection, HIL consistency, AI reasoning, blockchain anchoring, and strategic C2 escalation.
     """
-    def __init__(self, agent_id: str = "ADS_B_CYBER_PERITO_V2"):
+    def __init__(self, agent_id: str = "ADS_B_CYBER_PERITO_V3"):
         super().__init__(agent_id)
         # INITIALIZE GEAR SWARM (SWARM INTELLIGENCE)
         self.reasoner = GeminiReasoningAgent()
         self.mitigator = GEARMitigationAgent()
         self.ledger = GEARBlockchainAgent()
         self.arinc_monitor = GEARArinc429Agent()
+        self.command_node = GEARCommandNode()
         
-        self.log(f"Full Swarm Ecosystem: [PERITO + ARINC_HIL + GEMINI + MITIGATOR + BLOCKCHAIN]. TRL-9.", "INFO")
+        self.log(f"Full Swarm Ecosystem: [PERITO + ARINC_HIL + GEMINI + MITIGATOR + BLOCKCHAIN + C2]. TRL-9.", "INFO")
 
     def process(self, telemetry_packet: Dict[str, Any], bus_data: Dict[str, float] = None):
         """
@@ -75,6 +77,10 @@ class ADSBCyberPeritoAgent(GEARBaseAgent):
             # STEP 05: DECENTRALIZED ANCHORING (Blockchain)
             blockchain_tx = self.ledger.process(evidence)
             self.log(f"EVIDENCE ANCHORED IN BLOCKCHAIN (TX: {blockchain_tx[:16]}...)", "SUCCESS")
+            
+            # STEP 06: STRATEGIC COMMAND & CONTROL (Escalation)
+            briefing = self.command_node.process(evidence)
+            self.log(f"STRATEGIC MISSION BRIEFING PREPARED (ID: {briefing['mission_id']})", "INFO")
             
             return evidence
         

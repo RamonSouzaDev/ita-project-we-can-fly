@@ -22,6 +22,23 @@ This project is now integrated with the **GEAR Ecosystem**, implementing advance
 *   **⚡ Agentic Design Patterns:** Micro-agent architecture for collaborative threat detection and instant protection.
 *   **☁️ Security Lab (GCP):** Stress-testing infrastructure via Google Cloud Security credits.
 
+## 🐝 GEAR Swarm V2.5 - Evolution TRL-9 (New Modules)
+The project has evolved into a fully autonomous **Swarm Intelligence** ecosystem, providing end-to-end detection, reasoning, and active defense.
+
+### 🛡️ Active Swarm Nodes:
+1.  **Cyber-Perito V2.5 (`src/adsb_cyber_perito_agent.py`)**: The orchestrator. Combines radio telemetry with hardware consistency checks.
+2.  **ARINC 429 HIL Monitor (`src/gear_arinc429_agent.py`)**: Validates the aircraft's "Internal Truth" (Hardware-in-the-loop). Detects Avionics Impersonation.
+3.  **Gemini Reasoning Engine (`src/gear_gemini_agent.py`)**: Uses Vertex AI to explain anomalies and command neutralization protocols.
+4.  **Mitigation Shield (`src/gear_mitigation_agent.py`)**: Executes active defense (SDR Port Blocking / Firewall Injection) to neutralize spoofers.
+5.  **Blockchain Forensic Ledger (`src/gear_blockchain_agent.py`)**: Anchors every forensic hash into an immutable decentralized chain for the **Public Ministry (MPSP)**.
+
+### 🧪 Advanced Simulations:
+*   **Stress Test (100k msg/min)**: `python run_gear_stress_test.py`
+*   **HIL Cross-Check (Spoofing vs. Bus)**: `python run_hil_simulation.py`
+*   **Blockchain Audit Session**: `python run_blockchain_audit_session.py`
+
+---
+
 
 ## 🎥 Official Project Pitch (FINEP Compliance)
 **Required for Habilitation Phase:**
