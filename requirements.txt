@@ -1,16 +1,12 @@
 pandas
 numpy
 scikit-learn
+joblib
 matplotlib
 seaborn
-jupyter
-pytest
-streamlit
 google-cloud-bigquery
 google-api-core
-tensorflow
 google-genai
-google-generative-ai
 pydantic
 python-dotenv
 flask
