@@ -132,14 +132,42 @@ class ADSBSpoofingDetector:
         plt.savefig(filename)
         logging.info(f"Detection visualization exported to {filename}")
 
+import argparse
+import os
+import joblib
+
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='ADS-B 1090ES Spoofing Detector (TRL-9)')
+    parser.add_argument('--train', action='store_true', help='Train the model and save it')
+    parser.add_argument('--output', type=str, default='models/latest_model.joblib', help='Output path for the trained model')
+    args = parser.parse_args()
+
     print("✈️  AEROSPACE CYBERSECURITY DO-326A VALIDATION  ✈️")
     print("--------------------------------------------------")
+    
     detector = ADSBSpoofingDetector(contamination=0.05)
-    
     df = detector.generate_flight_data(n_samples=2000)
-    detector.train_detector(df)
     
-    predictions = detector.evaluate(df)
-    detector.plot_results(df, predictions)
-    print("\n✅ Simulation Complete. Airspace Integrity Validated.")
+    if args.train:
+        detector.train_detector(df)
+        
+        # Ensure the directory exists
+        os.makedirs(os.path.dirname(args.output), exist_ok=True)
+        
+        # Save model and scaler together as a dictionary for inference stability
+        model_artifact = {
+            'model': detector.model,
+            'scaler': detector.scaler,
+            'features': detector.features,
+            'timestamp': datetime.utcnow().isoformat() + "Z",
+            'author': "Eng. Ramon Mendes (MPSP ID: 9830)"
+        }
+        joblib.dump(model_artifact, args.output)
+        logging.info(f"Model artifact saved to {args.output}")
+        
+    else:
+        detector.train_detector(df)
+        predictions = detector.evaluate(df)
+        detector.plot_results(df, predictions)
+        print("\n✅ Simulation Complete. Airspace Integrity Validated.")
+

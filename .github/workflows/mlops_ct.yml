@@ -21,12 +21,13 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install pandas scikit-learn joblib
+          pip install pandas scikit-learn joblib matplotlib seaborn
 
       - name: Train Isolation Forest Model
         run: |
           # Simulating training with existing data
           python src/adsb_spoofing.py --train --output models/latest_model.joblib
+
 
       - name: Validate Model Accuracy
         run: |
