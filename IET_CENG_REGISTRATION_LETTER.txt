@@ -1,0 +1,34 @@
+# IET Professional Registration Inquery - Chartered Engineer (CEng)
+# ------------------------------------------------------------------
+# Applicant: Ramon de Souza Mendes (CREA-SP 5071785098)
+# Project: WE CAN FLY (GEAR ADK - Aeronautic Cyber-Security)
+# ------------------------------------------------------------------
+
+To: IET Professional Registration Team
+Subject: CEng Registration Inquiry // Washington Accord Reciprocity // Project: WE CAN FLY (TRL-9)
+
+Dear Professional Registration Team,
+
+I am writing to express my formal interest in pursuing the **Chartered Engineer (CEng)** professional registration under the requirements of the Institution of Engineering and Technology (IET).
+
+I am a Senior Software Engineer and Forensic Expert based in Brazil, registered with **CREA-SP (No. 5071785098)**. My professional career is currently focused on the development of high-readiness aerospace defense systems (TRL-9). 
+
+I have recently completed the **"WE CAN FLY"** project, a decentralized autonomous ecosystem (GEAR Swarm) designed for the detection and mitigation of sophisticated aeronautic cyber-threats (SDR Spoofing and Avionics Impersonation). This project implements international standards such as **DO-326A/ED-202A**, **DO-178C**, and **ISO 27001**, integrating advanced AI reasoning (Gemini 1.5 Pro) with physical bus monitoring (ARINC 429).
+
+Given the reciprocity potential under the **Washington Accord** (via Confea/Crea for Brazil), I would like to request guidance on the specific documentation required to validate my Brazilian credentials and technical dossier for the CEng status.
+
+**Attached for your initial review:**
+1.  GEAR Technical Dossier (TRL-9) - WCF-2026-TRL9.
+2.  Professional Registration Credentials (CREA-SP).
+3.  Forensic Expert Credentials (MPSP 9830).
+
+I look forward to your guidance on the next steps for my membership (MIET) and professional registration.
+
+Sincerely,
+
+**Ramon de Souza Mendes**
+Senior Software Engineer & Forensic Expert
+WhatsApp: +55 (11) 96652-4351
+Email: dwmom@hotmail.com
+LinkedIn: /in/ramon-souza-mendes (Simulated)
+Guarulhos, SP - Brazil

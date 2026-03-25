@@ -5,11 +5,12 @@ from src.gear_adk_base import GEARBaseAgent
 from src.gear_gemini_agent import GeminiReasoningAgent
 from src.gear_mitigation_agent import GEARMitigationAgent
 from src.gear_blockchain_agent import GEARBlockchainAgent
+from src.gear_arinc429_agent import GEARArinc429Agent
 
 class ADSBCyberPeritoAgent(GEARBaseAgent):
     """
-    Orchestrates the ADS-B cybersecurity monitoring ecosystem (GEAR SWARM V2.0). 
-    Combines ML detection, AI reasoning, autonomous mitigation, and blockchain anchoring.
+    Orchestrates the ADS-B cybersecurity monitoring ecosystem (GEAR SWARM V2.5). 
+    Combines ML detection, ARINC 429 HIL consistency, AI reasoning, and blockchain anchoring.
     """
     def __init__(self, agent_id: str = "ADS_B_CYBER_PERITO_V2"):
         super().__init__(agent_id)
@@ -17,24 +18,39 @@ class ADSBCyberPeritoAgent(GEARBaseAgent):
         self.reasoner = GeminiReasoningAgent()
         self.mitigator = GEARMitigationAgent()
         self.ledger = GEARBlockchainAgent()
+        self.arinc_monitor = GEARArinc429Agent()
         
-        self.log(f"Full Swarm Ecosystem: [PERITO + GEMINI + MITIGATOR + BLOCKCHAIN]. Status: TRL-9.", "INFO")
+        self.log(f"Full Swarm Ecosystem: [PERITO + ARINC_HIL + GEMINI + MITIGATOR + BLOCKCHAIN]. TRL-9.", "INFO")
 
-    def process(self, telemetry_packet: Dict[str, Any]):
+    def process(self, telemetry_packet: Dict[str, Any], bus_data: Dict[str, float] = None):
         """
-        Executes the autonomous detection-reasoning-mitigation workflow.
+        Executes the autonomous HIL-detection-reasoning-mitigation workflow.
         """
-        # STEP 01: MONITORING (ADK Logic)
+        # STEP 01: MONITORING (HIL Cross-Consistency)
         self.log(f"Monitoring ADS-B Sector: ICAO {telemetry_packet.get('icao', 'UNKNOWN')}", "INFO")
         
-        # Simulating anomaly trigger (in a real scenario, this would be an ML model output)
-        is_anomaly = telemetry_packet.get("alt", 0) > 60000 
+        is_hil_conflict = False
+        if bus_data:
+            # Cross-check ADS-B vs ARINC 429 Label 203 (Altitude)
+            if not self.arinc_monitor.verify_consistency(telemetry_packet, bus_data):
+                is_hil_conflict = True
+                self.log("HIL CONFLICT DETECTED: Hardware vs Radio telemetry discrepancy.", "CRITICAL")
+        
+        # Simulating anomaly trigger (ML + HIL Conflict)
+        is_anomaly = telemetry_packet.get("alt", 0) > 60000 or is_hil_conflict
         
         if is_anomaly:
-            self.log(f"HIGH ALERT - ANOMALY DETECTED at ICAO {telemetry_packet.get('icao')}", "WARN")
+            label = "HIL_CONSISTENCY_FAILURE" if is_hil_conflict else "PHYSICAL_ANOMALY"
+            self.log(f"HIGH ALERT - {label} at ICAO {telemetry_packet.get('icao')}", "WARN")
             
             # STEP 02: REASONING (Gemini AI Layer)
-            reasoning = self.reasoner.process(telemetry_packet)
+            # Combining telemetry + bus data for Gemini to analyze
+            forensic_context = {
+                "telemetry": telemetry_packet,
+                "arinc_labels": bus_data,
+                "status": label
+            }
+            reasoning = self.reasoner.process(forensic_context)
             self.log(f"Gemini Forensic Reasoning: {reasoning}", "INFO")
             
             # STEP 03: MITIGATION (Active Defense Shield)
@@ -48,6 +64,7 @@ class ADSBCyberPeritoAgent(GEARBaseAgent):
             # STEP 04: EVIDENCE PRESERVATION (MPSP/BLOCKCHAIN Standard)
             evidence = {
                 "telemetry": telemetry_packet,
+                "bus_data": bus_data,
                 "reasoning": reasoning,
                 "mitigation_id": mitigation_id if 'mitigation_id' in locals() else None,
                 "forensic_expert": "Ramon Mendes (MPSP 9830)",
