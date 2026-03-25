@@ -39,9 +39,14 @@ def traverse_and_fix(directory):
                 fix_file(os.path.join(root, file))
 
 if __name__ == "__main__":
-    traverse_and_fix(r'c:\Users\dwmom\OneDrive\Documentos\we-can-fly-validation\src')
-    traverse_and_fix(r'c:\Users\dwmom\OneDrive\Documentos\we-can-fly-validation\tests')
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    traverse_and_fix(os.path.join(current_dir, 'src'))
+    if os.path.exists(os.path.join(current_dir, 'tests')):
+        traverse_and_fix(os.path.join(current_dir, 'tests'))
     # Also fix files in root
-    for f in os.listdir(r'c:\Users\dwmom\OneDrive\Documentos\we-can-fly-validation'):
+    for f in os.listdir(current_dir):
         if f.endswith('.py') or f.endswith('.md'):
-            fix_file(os.path.join(r'c:\Users\dwmom\OneDrive\Documentos\we-can-fly-validation', f))
+            # fix_file requires file path
+            path = os.path.join(current_dir, f)
+            if os.path.isfile(path):
+                fix_file(path)

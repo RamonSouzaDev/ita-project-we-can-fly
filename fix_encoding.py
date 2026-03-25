@@ -22,6 +22,8 @@ def convert_to_utf8(directory):
                     print(f"Error processing {path}: {str(e)}")
 
 if __name__ == "__main__":
-    convert_to_utf8(r'c:\Users\dwmom\OneDrive\Documentos\we-can-fly-validation\src')
-    convert_to_utf8(r'c:\Users\dwmom\OneDrive\Documentos\we-can-fly-validation\tests')
-    convert_to_utf8(r'c:\Users\dwmom\OneDrive\Documentos\we-can-fly-validation')
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    convert_to_utf8(os.path.join(current_dir, 'src'))
+    if os.path.exists(os.path.join(current_dir, 'tests')):
+        convert_to_utf8(os.path.join(current_dir, 'tests'))
+    convert_to_utf8(current_dir)
