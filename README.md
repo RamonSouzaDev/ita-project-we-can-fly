@@ -228,6 +228,17 @@ python src/cloud_run_webhook_test.py
 
 ---
 
+## 🚀 Phase 3: Google Cloud Native Expansion (TRL-9 Enterprise)
+
+The project has been scaled with the **Google Cloud Free Tier / Enterprise** stack to ensure global resilience, real-time tactical response, and bulletproof forensic audits.
+
+*   **[Cloud Pub/Sub Edge Ingestion](cloud_pubsub_edge.py):** Implements asynchronous, loss-less ADS-B telemetry streaming. Includes LGPD-compliant hashing of ICAO24 codes at the edge before cloud transmission.
+*   **[VHF Audio Agent (Speech-to-Text ATC Radio)](vhf_audio_agent.py):** A multimodal semantic verifier. Cross-references pilot VHF communications (voice) with digital radar tracks to detect voice-spoofing and altitude discrepancies via Google Cloud Speech-to-Text.
+*   **[Forensic Cryptography (Cloud KMS)](kms_forensic_signer.py):** Seals the 1090MHz raw intercepts with indelible Google-managed asymmetric signatures, ensuring an immutable chain of custody for Public Ministry (MPSP) judicial trials.
+*   **[Real-Time Tactical Socket (Firestore)](firestore_threat_socket.py):** Connects the SDR edge directly to NoSQL persistent collections, triggering sub-second HUD/Dashboard updates for mission-critical situational awareness.
+
+---
+
 ## 🌍 Global Impact Analysis (Historical Data Science Modeling)
 
 Based on a massive algorithmic extrapolation of **52,430 historical aviation accidents** via Data Science and Natural Language Processing pipelines (NTSB / public API extraction patterns), we calculated the exact projected footprint of our deployed AI.
