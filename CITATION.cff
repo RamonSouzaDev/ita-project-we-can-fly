@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Mendes"
+  given-names: "Ramon de Souza"
+  affiliation: "ITA / MPSP Perito Técnico (ID: 9830)"
+title: "We Can Fly: TRL-9 Aeronautic Cybersecurity via Multimodal AI & SDR"
+version: 3.0.0
+doi: 10.5281/zenodo.PLACEHOLDER # To be updated once linked to Zenodo
+date-released: 2026-03-25
+url: "https://github.com/RamonSouzaDev/ita-project-we-can-fly"
+keywords:
+  - aeronautics
+  - cybersecurity
+  - adds-b
+  - spooping
+  - artificial intelligence
+  - google cloud
+  - trl-9
