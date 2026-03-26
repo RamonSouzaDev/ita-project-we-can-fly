@@ -1,0 +1,29 @@
+steps:
+# 1. Build the Zero-Trust Container Image using Cloud Build
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/wecanfly-mitigation:latest', '-f', 'Dockerfile.mitigation', '.']
+
+# 2. Push to Artifact Registry (Secure Image Vault)
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/wecanfly-mitigation:latest']
+
+# 3. Deploy to Cloud Run (Zero-Trust Configuration)
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - 'run'
+  - 'deploy'
+  - 'gear-mitigation-shield'
+  - '--image'
+  - 'gcr.io/$PROJECT_ID/wecanfly-mitigation:latest'
+  - '--platform'
+  - 'managed'
+  - '--region'
+  - 'us-central1'
+  - '--no-allow-unauthenticated' # 🛡️ Strict IAM Zero Trust Policy
+  - '--service-account'
+  - '650456447874-compute@developer.gserviceaccount.com'
+
+# Ensure the build tags are linked back to a precise GitHub SHA 
+images:
+- 'gcr.io/$PROJECT_ID/wecanfly-mitigation:latest'

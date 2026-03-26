@@ -1,0 +1,23 @@
+# -------------------------------------------------------------------
+# Zero Trust Mitigation Shield Container
+# Google Cloud Run Environment (TRL-9 / MPSP Verified)
+# -------------------------------------------------------------------
+FROM python:3.12-slim
+
+# System Core Updates
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc libc6-dev libffi-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY requirements.txt .
+
+# Optimize dependencies
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir google-genai vertexai google-cloud-pubsub google-cloud-kms
+
+COPY ./src /app/src
+
+# Execution entrypoint
+ENV PORT=8080
+CMD ["python", "src/gear_mitigation_agent.py"]

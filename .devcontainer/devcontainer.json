@@ -1,0 +1,32 @@
+{
+  "name": "GEAR Data Science Forensics Rig (TRL-9)",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "installTools": true,
+      "version": "3.12"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "github.copilot",
+        "github.copilot-chat",
+        "github.vscode-github-actions"
+      ]
+    }
+  },
+  "hostRequirements": {
+    "memory": "64gb",
+    "cpus": 16
+  },
+  "postCreateCommand": "pip install -r requirements.txt && pip install jupyterlab tensorflow torch scikit-learn google-genai"
+}
