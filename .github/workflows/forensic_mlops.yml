@@ -1,0 +1,71 @@
+name: DevSecOps Forensic MLOps (We Can Fly TRL-9)
+
+on:
+  push:
+    branches: [ "main", "feature/*" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+  security-events: write
+  actions: read
+
+jobs:
+  forensic-audit-codeql:
+    name: "CodeQL Advanced Security Audit"
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL (Language: Python)
+      uses: github/codeql-action/init@v3
+      with:
+        languages: python
+        # Custom queries for Forensic Integrity
+        queries: security-and-quality
+
+    - name: Perform Static Analysis (AST)
+      uses: github/codeql-action/analyze@v3
+
+  gemini-ultra-validation:
+    name: "Vertex AI Environment Sandbox Check"
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+      
+    - name: Setup Python Forensics Core
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+
+    - name: Validate Dependencies
+      run: |
+        pip install -r requirements.txt || echo "[WARN] Dependencies Missing"
+        pip install google-genai pytest
+        
+    - name: Simular Inicialização do Agente Ultra (Dry-Run)
+      run: |
+        python -c "
+        import sys
+        sys.path.insert(0, './src')
+        try:
+            from gear_gemini_agent import GeminiReasoningAgent
+            agent = GeminiReasoningAgent('TEST_MPSP_9830')
+            print('[SUCCESS] Agent initialized successfully in Sandbox.')
+        except Exception as e:
+            print(f'[CRITICAL ERROR] Failed to load agent: {e}')
+            sys.exit(1)
+        "
+        
+  mlops-training-pipeline:
+    name: "Continuous Big Data Training (Mock)"
+    needs: [forensic-audit-codeql, gemini-ultra-validation]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy Neural Weights to Edge
+        run: echo "Initiating Vertex AI ML Pipeline Deployment... (MPSP SHA-256 Auth Required)"
