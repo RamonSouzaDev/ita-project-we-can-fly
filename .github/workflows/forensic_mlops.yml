@@ -45,15 +45,14 @@ jobs:
     - name: Validate Dependencies
       run: |
         pip install -r requirements.txt || echo "[WARN] Dependencies Missing"
-        pip install google-genai pytest
+        pip install google-genai pytest python-dotenv
         
     - name: Simular Inicialização do Agente Ultra (Dry-Run)
       run: |
         python -c "
         import sys
-        sys.path.insert(0, './src')
         try:
-            from gear_gemini_agent import GeminiReasoningAgent
+            from src.gear_gemini_agent import GeminiReasoningAgent
             agent = GeminiReasoningAgent('TEST_MPSP_9830')
             print('[SUCCESS] Agent initialized successfully in Sandbox.')
         except Exception as e:
