@@ -19,7 +19,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Initialize CodeQL (Language: Python)
+    - name: "Initialize CodeQL (Language: Python)"
       uses: github/codeql-action/init@v3
       with:
         languages: python
